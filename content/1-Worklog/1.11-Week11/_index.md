@@ -1,57 +1,61 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-01
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand AWS backup, disaster recovery, and cost optimization strategies.
+* Learn how to improve system reliability while reducing operational costs.
+* Explore AWS Backup and AWS Cost Management services.
+* Gain hands-on experience monitoring resource utilization and optimizing cloud infrastructure.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Learn AWS Backup.<br>&emsp;+ Backup Plans.<br>&emsp;+ Backup Vaults.<br>&emsp;+ Backup Policies.<br>&emsp;+ Recovery Points. | 06/02/2026 | 06/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Practice:**<br>&emsp;+ Create a Backup Plan.<br>&emsp;+ Configure automatic backups for Amazon EC2 and Amazon RDS.<br>&emsp;+ Perform backup restoration.<br>&emsp;+ Verify recovery results. | 06/03/2026 | 06/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Learn AWS Cost Management services.<br>&emsp;+ AWS Cost Explorer.<br>&emsp;+ AWS Budgets.<br>&emsp;+ Cost Allocation Tags.<br>&emsp;+ Billing Dashboard. | 06/04/2026 | 06/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Learn cost optimization techniques.<br>&emsp;+ AWS Trusted Advisor.<br>&emsp;+ Savings Plans.<br>&emsp;+ Reserved Instances.<br>&emsp;+ Resource Rightsizing. | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Practice:**<br>&emsp;+ Analyze AWS service costs.<br>&emsp;+ Configure AWS Budgets and billing alerts.<br>&emsp;+ Review Trusted Advisor recommendations.<br>&emsp;+ Optimize underutilized cloud resources. | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the importance of backup and disaster recovery strategies in maintaining business continuity.
 
-* Successfully created and configured an AWS Free Tier account.
+* Learned the core components of AWS Backup, including:
+  * Backup Plans
+  * Backup Vaults
+  * Recovery Points
+  * Backup Policies
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully configured automated backup schedules for AWS resources and verified data restoration procedures.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Learned how AWS Cost Explorer provides detailed insights into cloud spending and resource utilization.
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully configured AWS Budgets to monitor monthly expenses and receive notifications when predefined spending thresholds were exceeded.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Understood the purpose of Cost Allocation Tags for organizing and analyzing resource costs.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned how AWS Trusted Advisor identifies opportunities to improve:
+  * Cost Optimization
+  * Performance
+  * Security
+  * Fault Tolerance
+  * Service Limits
+
+* Explored Savings Plans and Reserved Instances to understand long-term cloud cost reduction strategies.
+
+* Identified underutilized AWS resources and evaluated recommendations for rightsizing cloud infrastructure.
+
+* Gained practical experience balancing system reliability, operational efficiency, and infrastructure cost.
+
+* Developed the ability to monitor cloud spending proactively and implement optimization strategies for production environments.
+
+* Established a solid foundation for completing an end-to-end AWS deployment project in the final week.

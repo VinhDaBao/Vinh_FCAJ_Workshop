@@ -1,59 +1,65 @@
 ---
-title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+title: "Week 2 Worklog"
+date: 2026-03-30
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các dịch vụ mạng cơ bản của AWS.
+* Tìm hiểu cách xây dựng kiến trúc mạng an toàn bằng Amazon VPC.
+* Cấu hình quyền truy cập mạng cho các EC2 instance.
+* Thực hành triển khai và kiểm tra kết nối mạng.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc sẽ thực hiện trong tuần này:
 
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Tìm hiểu Amazon Virtual Private Cloud (VPC).<br>&emsp;+ Kiến trúc VPC.<br>&emsp;+ CIDR Blocks.<br>&emsp;+ Public và Private Subnets.<br>&emsp;+ Route Tables. | 03/31/2026 | 03/31/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - Tìm hiểu Internet Gateway và cấu hình Route Table.<br>- Tạo một VPC tùy chỉnh.<br>- Cấu hình Public và Private Subnets.<br>- Xác minh kết nối Internet cho các tài nguyên công khai. | 04/01/2026 | 04/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Tìm hiểu Security Groups và Network ACLs.<br>- So sánh cơ chế firewall stateful và stateless.<br>- Cấu hình quy tắc lưu lượng đến và đi cho EC2. | 04/02/2026 | 04/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Tìm hiểu về địa chỉ Elastic IP.<br>- Gắn và tách Elastic IP với các EC2 instance.<br>- Kiểm tra kết nối SSH từ xa sau khi thay đổi IP. | 04/03/2026 | 04/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:**<br>&emsp;+ Triển khai một EC2 instance trong VPC tùy chỉnh.<br>&emsp;+ Cấu hình Security Groups và Route Tables.<br>&emsp;+ Xác thực quyền truy cập Internet.<br>&emsp;+ Khắc phục sự cố mạng. | 04/04/2026 | 04/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 2:
+### Thành tựu của tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu được kiến trúc và các thành phần của Amazon Virtual Private Cloud (VPC).
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thiết kế và triển khai thành công một VPC tùy chỉnh gồm:
+  * Public Subnet
+  * Private Subnet
+  * Route Tables
+  * Internet Gateway
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tìm hiểu cách CIDR blocks xác định việc phân bổ địa chỉ IP trong một VPC.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Hiểu rõ sự khác nhau giữa:
+  * Public Subnets
+  * Private Subnets
+  * Tài nguyên Internet-facing
+  * Tài nguyên nội bộ
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Cấu hình thành công các quy tắc định tuyến để cho phép truy cập Internet cho các tài nguyên triển khai trong public subnets.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Tìm hiểu chức năng của Security Groups như firewall ảo dạng stateful.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hiểu cách Network ACLs cung cấp lọc lưu lượng ở mức subnet, bao gồm:
+  * Stateless packet filtering
+  * Thứ tự đánh giá quy tắc
+  * Quy tắc inbound và outbound
 
+* Cấu hình thành công Security Groups để cho phép SSH an toàn trong khi hạn chế lưu lượng inbound không cần thiết.
 
+* Tìm hiểu cách Elastic IP cấp địa chỉ public IP bền vững cho EC2 instances.
+
+* Gắn thành công Elastic IP với một EC2 instance và xác minh kết nối từ xa.
+
+* Thực hành khắc phục các sự cố mạng phổ biến như:
+  * Thiếu Internet Gateway
+  * Cấu hình Route Table không đúng
+  * Quy tắc Security Group cấu hình sai
+  * Hạn chế của Network ACL
+
+* Xây dựng nền tảng mạng vững chắc cho việc triển khai các ứng dụng AWS có thể mở rộng và an toàn trong các tuần tiếp theo.

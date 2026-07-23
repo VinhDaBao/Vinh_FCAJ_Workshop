@@ -1,57 +1,58 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-04-27
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand serverless computing and event-driven architectures on AWS.
+* Learn how to build serverless applications using AWS Lambda and Amazon API Gateway.
+* Explore asynchronous messaging services with Amazon SQS and Amazon SNS.
+* Gain hands-on experience developing event-driven cloud applications.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Learn the fundamentals of Serverless Computing.<br>&emsp;+ AWS Lambda.<br>&emsp;+ Event-driven Architecture.<br>&emsp;+ Lambda Functions.<br>&emsp;+ Execution Roles. | 04/28/2026 | 04/28/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Practice:**<br>&emsp;+ Create a Lambda function.<br>&emsp;+ Configure IAM execution roles.<br>&emsp;+ Test function execution using sample events.<br>&emsp;+ Monitor execution logs with CloudWatch. | 04/29/2026 | 04/29/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Learn Amazon API Gateway.<br>&emsp;+ REST APIs.<br>&emsp;+ Resources and Methods.<br>&emsp;+ Stages.<br>&emsp;+ API Deployment.<br>- Integrate API Gateway with AWS Lambda. | 04/30/2026 | 04/30/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Learn Amazon SQS and Amazon SNS.<br>&emsp;+ Message Queues.<br>&emsp;+ Topics and Subscriptions.<br>&emsp;+ Message Delivery.<br>- Explore event-driven communication patterns. | 05/01/2026 | 05/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Practice:**<br>&emsp;+ Build a serverless REST API.<br>&emsp;+ Connect API Gateway with Lambda.<br>&emsp;+ Publish and receive messages using SNS and SQS.<br>&emsp;+ Validate the event-driven workflow. | 05/02/2026 | 05/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the concepts and benefits of serverless computing for building scalable cloud applications.
 
-* Successfully created and configured an AWS Free Tier account.
+* Learned the core features of AWS Lambda, including:
+  * Lambda Functions
+  * Execution Environment
+  * Event Sources
+  * IAM Execution Roles
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully created and deployed Lambda functions to execute application logic without provisioning servers.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Configured Amazon CloudWatch Logs to monitor Lambda execution and troubleshoot runtime issues.
 
-* Used AWS CLI to perform basic operations such as:
+* Learned how Amazon API Gateway exposes RESTful APIs and integrates seamlessly with AWS Lambda.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Successfully deployed a serverless REST API using API Gateway and Lambda.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood asynchronous messaging patterns using:
+  * Amazon Simple Queue Service (SQS)
+  * Amazon Simple Notification Service (SNS)
+
+* Successfully configured SNS topics and SQS queues to exchange messages between distributed application components.
+
+* Verified end-to-end event processing by integrating API Gateway, Lambda, SNS, and SQS into a serverless workflow.
+
+* Gained practical experience designing and implementing event-driven architectures using AWS managed services.
+
+* Improved understanding of scalable, loosely coupled application design through serverless technologies.
+
+* Established a strong foundation for learning Infrastructure as Code (IaC) and cloud automation in the following week.

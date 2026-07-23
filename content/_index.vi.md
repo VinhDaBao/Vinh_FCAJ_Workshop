@@ -1,29 +1,29 @@
 ---
 title: "Báo cáo thực tập"
-date: 2024-01-01
+date: 2026-07-23
 weight: 1
 chapter: false
 ---
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Trịnh Quốc Công Vinh
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0374075019    
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** 23110366@student.hcmute.edu.vn
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** Đại học Công nghệ Kỹ thuật TP.HCM
 
 &emsp; **Ngành:** Công nghệ thông tin
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** 
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Viet Nam
+&emsp; **Công ty thực tập:** Bootcamp - First Cloud AI Journe @ AWS Study Group
 
-&emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
+&emsp; **Vị trí thực tập:** Cloud Engineer
 
-&emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
+&emsp; **Thời gian thực tập:** Từ ngày 19/03/2026 đến ngày 19/07/2026
 
 ![Ảnh đại diện của bạn](/images/avatar.png)
 

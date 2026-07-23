@@ -1,59 +1,59 @@
 ---
-title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+title: "Week 11 Worklog"
+date: 2026-06-01
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các chiến lược backup, disaster recovery và tối ưu chi phí của AWS.
+* Tìm hiểu cách cải thiện độ tin cậy của hệ thống đồng thời giảm chi phí vận hành.
+* Khám phá AWS Backup và các dịch vụ AWS Cost Management.
+* Có kinh nghiệm thực hành giám sát mức sử dụng tài nguyên và tối ưu hạ tầng đám mây.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc sẽ thực hiện trong tuần này:
 
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Tìm hiểu AWS Backup.<br>&emsp;+ Backup Plans.<br>&emsp;+ Backup Vaults.<br>&emsp;+ Backup Policies.<br>&emsp;+ Recovery Points. | 06/02/2026 | 06/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành:**<br>&emsp;+ Tạo một Backup Plan.<br>&emsp;+ Cấu hình backup tự động cho Amazon EC2 và Amazon RDS.<br>&emsp;+ Thực hiện khôi phục backup.<br>&emsp;+ Xác nhận kết quả khôi phục. | 06/03/2026 | 06/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Tìm hiểu các dịch vụ AWS Cost Management.<br>&emsp;+ AWS Cost Explorer.<br>&emsp;+ AWS Budgets.<br>&emsp;+ Cost Allocation Tags.<br>&emsp;+ Billing Dashboard. | 06/04/2026 | 06/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Tìm hiểu các kỹ thuật tối ưu chi phí.<br>&emsp;+ AWS Trusted Advisor.<br>&emsp;+ Savings Plans.<br>&emsp;+ Reserved Instances.<br>&emsp;+ Resource Rightsizing. | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:**<br>&emsp;+ Phân tích chi phí các dịch vụ AWS.<br>&emsp;+ Cấu hình AWS Budgets và billing alerts.<br>&emsp;+ Xem lại khuyến nghị của Trusted Advisor.<br>&emsp;+ Tối ưu các tài nguyên đám mây đang sử dụng thấp. | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 11:
+### Thành tựu của tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu được tầm quan trọng của các chiến lược backup và disaster recovery trong việc duy trì tính liên tục của doanh nghiệp.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu các thành phần cốt lõi của AWS Backup, bao gồm:
+  * Backup Plans
+  * Backup Vaults
+  * Recovery Points
+  * Backup Policies
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Cấu hình thành công lịch backup tự động cho các tài nguyên AWS và xác minh quy trình khôi phục dữ liệu.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu cách AWS Cost Explorer cung cấp thông tin chi tiết về chi tiêu đám mây và mức sử dụng tài nguyên.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Cấu hình thành công AWS Budgets để theo dõi chi phí hàng tháng và nhận thông báo khi vượt ngưỡng chi tiêu đã định trước.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Hiểu mục đích của Cost Allocation Tags trong việc tổ chức và phân tích chi phí tài nguyên.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tìm hiểu cách AWS Trusted Advisor xác định cơ hội cải thiện:
+  * Cost Optimization
+  * Performance
+  * Security
+  * Fault Tolerance
+  * Service Limits
 
+* Khám phá Savings Plans và Reserved Instances để hiểu các chiến lược giảm chi phí đám mây dài hạn.
 
+* Xác định các tài nguyên AWS sử dụng thấp và đánh giá các khuyến nghị để rightsizing hạ tầng đám mây.
+
+* Có kinh nghiệm thực tế trong việc cân bằng độ tin cậy hệ thống, hiệu quả vận hành và chi phí hạ tầng.
+
+* Phát triển khả năng theo dõi chi tiêu đám mây chủ động và triển khai các chiến lược tối ưu cho môi trường production.
+
+* Xây dựng nền tảng vững chắc để hoàn thành một dự án triển khai AWS end-to-end trong tuần cuối.

@@ -1,6 +1,6 @@
 ---
 title: "Internship Report"
-date: 2024-01-01
+date: 2026-07-23
 weight: 1
 chapter: false
 ---
@@ -8,28 +8,25 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Trinh Quoc Cong Vinh
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0374075019
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** 23110366@student.hcmute.edu.vn
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Ho Chi Minh City University of Technology and Engineer
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** 
 
-&emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
+&emsp; **Internship Company:** AmBootcamp - First Cloud AI Journe @ AWS Study Group
 
-&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
+&emsp; **Internship Position:** Cloud Engineer
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** Từ ngày 19/03/2026 đến ngày 19/07/2026
 
 ![Your profile picture](/images/avatar.png)
 

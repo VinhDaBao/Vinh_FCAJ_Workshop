@@ -1,57 +1,67 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-03-30
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand the core AWS networking services.
+* Learn how to build a secure network architecture using Amazon VPC.
+* Configure network access for EC2 instances.
+* Practice deploying and testing network connectivity.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Learn Amazon Virtual Private Cloud (VPC).<br>&emsp;+ VPC architecture.<br>&emsp;+ CIDR Blocks.<br>&emsp;+ Public and Private Subnets.<br>&emsp;+ Route Tables. | 03/31/2026 | 03/31/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - Learn Internet Gateway and Route Table configuration.<br>- Create a custom VPC.<br>- Configure Public and Private Subnets.<br>- Verify Internet connectivity for public resources. | 04/01/2026 | 04/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Learn Security Groups and Network ACLs.<br>- Compare stateful and stateless firewall mechanisms.<br>- Configure inbound and outbound traffic rules for EC2. | 04/02/2026 | 04/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Learn about Elastic IP addresses.<br>- Associate and disassociate Elastic IP with EC2 instances.<br>- Test remote SSH connectivity after IP reassignment. | 04/03/2026 | 04/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Practice:**<br>&emsp;+ Deploy an EC2 instance inside a custom VPC.<br>&emsp;+ Configure Security Groups and Route Tables.<br>&emsp;+ Validate Internet access.<br>&emsp;+ Troubleshoot networking issues. | 04/04/2026 | 04/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the architecture and components of Amazon Virtual Private Cloud (VPC).
 
-* Successfully created and configured an AWS Free Tier account.
+* Successfully designed and deployed a custom VPC including:
+  * Public Subnet
+  * Private Subnet
+  * Route Tables
+  * Internet Gateway
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Learned how CIDR blocks define IP address allocation within a VPC.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Understood the differences between:
+  * Public Subnets
+  * Private Subnets
+  * Internet-facing resources
+  * Internal resources
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully configured routing rules to allow Internet access for resources deployed in public subnets.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Learned the functionality of Security Groups as stateful virtual firewalls.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood how Network ACLs provide subnet-level traffic filtering, including:
+  * Stateless packet filtering
+  * Rule evaluation order
+  * Inbound and Outbound rules
+
+* Successfully configured Security Groups to permit secure SSH access while restricting unnecessary inbound traffic.
+
+* Learned how Elastic IP addresses provide persistent public IP addresses for EC2 instances.
+
+* Successfully associated an Elastic IP with an EC2 instance and verified remote connectivity.
+
+* Practiced troubleshooting common networking issues such as:
+  * Missing Internet Gateway
+  * Incorrect Route Table configuration
+  * Misconfigured Security Group rules
+  * Network ACL restrictions
+
+* Built a strong networking foundation for deploying scalable and secure AWS applications in subsequent weeks.
