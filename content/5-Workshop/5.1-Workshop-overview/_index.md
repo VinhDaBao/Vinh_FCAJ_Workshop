@@ -15,4 +15,4 @@ In this workshop, you will use two VPCs.
 + **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
 + **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+{{< img "images/5-Workshop/5.1-Workshop-overview/diagram1.png" "overview" >}}

@@ -24,7 +24,10 @@ jobs:
 
       - name: Build website
         run: hugo --minify
-
+      - name: Check public output
+        run: |
+          ls -la public
+          find public -maxdepth 2 -type f | head -50
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
