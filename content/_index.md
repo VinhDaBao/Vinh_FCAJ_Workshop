@@ -28,8 +28,7 @@ chapter: false
 
 &emsp; **Internship Duration:** Từ ngày 19/03/2026 đến ngày 19/07/2026
 
-![Your profile picture](/images/avatar.png)
-
+{{< img "images/avatar.png" "Your profile picture" >}}
 ### Report Content
 
 1.  [Worklog](1-Worklog/)
