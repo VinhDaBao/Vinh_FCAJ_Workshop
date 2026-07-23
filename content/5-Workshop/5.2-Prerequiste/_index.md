@@ -222,21 +222,21 @@ In this lab, we will use **N.Virginia region (us-east-1)**.
 
 To prepare the workshop environment, deploy this **CloudFormation Template** (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Accept all of the defaults when deploying the template. 
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+{{< img "images/5-Workshop/5.2-Prerequisite/create-stack1.png" "create stack" >}}
 
 + Tick 2 acknowledgement boxes
 + Choose **Create stack**
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+{{< img "images/5-Workshop/5.2-Prerequisite/create-stack2.png" "create stack" >}}
 
 The **ClouddFormation** deployment requires about 15 minutes to complete.
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+{{< img "images/5-Workshop/5.2-Prerequisite/complete.png" "complete" >}}
 
 + **2 VPCs** have been created
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
+{{< img "images/5-Workshop/5.2-Prerequisite/vpcs.png" "vpcs" >}}
 
 + **3 EC2s** have been created
 
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+{{< img "images/5-Workshop/5.2-Prerequisite/ec2.png" "EC2" >}}

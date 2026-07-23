@@ -13,28 +13,28 @@ pre : " <b> 5.3.1 </b> "
 Bạn sẽ thấy 6 điểm cuối VPC hiện có hỗ trợ AWS Systems Manager (SSM). Các điểm cuối này được Mẫu CloudFormation triển khai tự động cho workshop này.
 {{% /notice %}}
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/endpoints.png" "endpoint" >}}
 
 3. Trong Create endpoint console:
 + Đặt tên cho endpoint: s3-gwe
 + Trong service category, chọn **aws services**
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png" "endpoint" >}}
 
 + Trong **Services**, gõ "s3" trong hộp tìm kiếm và chọn dịch vụ với loại **gateway**
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/services.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/services.png" "endpoint" >}}
 
 + Đối với VPC, chọn **VPC Cloud** từ drop-down menu.
 + Đối với Route tables, chọn bảng định tuyến mà đã liên kết với 2 subnets (lưu ý: đây không phải là bảng định tuyến chính cho VPC mà là bảng định tuyến thứ hai do CloudFormation tạo).
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/vpc.png" "endpoint" >}}
 
 + Đối với Policy, để tùy chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/policy.png" "endpoint" >}}
 
 + Không thêm tag vào VPC endpoint.
 + Click Create endpoint, click x sau khi nhận được thông báo tạo thành công.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)
+{{< img "images/5-Workshop/5.3-S3-vpc/complete.png" "endpoint" >}}
