@@ -1,57 +1,62 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand the principles of Continuous Integration and Continuous Deployment (CI/CD).
+* Learn how to automate application build, test, and deployment using AWS Developer Tools.
+* Explore AWS CodeCommit, CodeBuild, CodeDeploy, and CodePipeline.
+* Gain hands-on experience building an automated deployment pipeline.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Learn CI/CD concepts.<br>&emsp;+ Continuous Integration.<br>&emsp;+ Continuous Delivery.<br>&emsp;+ Continuous Deployment.<br>&emsp;+ DevOps best practices. | 05/19/2026 | 05/19/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - Learn AWS Developer Tools.<br>&emsp;+ AWS CodeCommit.<br>&emsp;+ AWS CodeBuild.<br>&emsp;+ AWS CodeDeploy.<br>&emsp;+ AWS CodePipeline. | 05/20/2026 | 05/20/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **Practice:**<br>&emsp;+ Create a source code repository.<br>&emsp;+ Configure a CodeBuild project.<br>&emsp;+ Build a Docker image automatically.<br>&emsp;+ Push artifacts to Amazon ECR. | 05/21/2026 | 05/21/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Configure AWS CodePipeline.<br>- Connect the source repository with CodeBuild and deployment stages.<br>- Deploy the application to Amazon ECS.<br>- Verify automatic pipeline execution after source code changes. | 05/22/2026 | 05/22/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Practice:**<br>&emsp;+ Modify application source code.<br>&emsp;+ Trigger pipeline execution.<br>&emsp;+ Monitor pipeline stages.<br>&emsp;+ Validate successful deployment and application availability. | 05/23/2026 | 05/23/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the software development lifecycle and the importance of CI/CD in modern cloud applications.
 
-* Successfully created and configured an AWS Free Tier account.
+* Learned the core AWS Developer Tools, including:
+  * AWS CodeCommit
+  * AWS CodeBuild
+  * AWS CodeDeploy
+  * AWS CodePipeline
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully created a source code repository and integrated it into an automated deployment workflow.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Configured AWS CodeBuild to:
+  * Build application source code
+  * Build Docker images
+  * Generate deployment artifacts
+  * Push container images to Amazon ECR
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully configured AWS CodePipeline to automate:
+  * Source retrieval
+  * Application build
+  * Container image publishing
+  * Deployment to Amazon ECS
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Verified that code changes automatically triggered a new pipeline execution without manual intervention.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned how deployment stages, approval processes, and build logs help improve deployment reliability.
+
+* Monitored pipeline execution and analyzed build logs to troubleshoot deployment failures.
+
+* Successfully deployed updated application versions to Amazon ECS through an automated CI/CD pipeline.
+
+* Gained practical experience integrating container services with AWS Developer Tools for continuous software delivery.
+
+* Established a strong foundation for securing cloud environments and implementing AWS security best practices in the following weeks.

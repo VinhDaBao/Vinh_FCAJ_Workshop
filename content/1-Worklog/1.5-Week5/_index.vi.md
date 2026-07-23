@@ -1,59 +1,63 @@
 ---
-title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+title: "Week 5 Worklog"
+date: 2026-04-20
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các dịch vụ giám sát và high availability của AWS.
+* Tìm hiểu cách giám sát tài nguyên AWS bằng Amazon CloudWatch.
+* Khám phá Auto Scaling và Elastic Load Balancing.
+* Xây dựng kiến trúc ứng dụng web có tính sẵn sàng cao và có khả năng mở rộng.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc sẽ thực hiện trong tuần này:
 
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Tìm hiểu Amazon CloudWatch.<br>&emsp;+ Metrics.<br>&emsp;+ Logs.<br>&emsp;+ Dashboards.<br>&emsp;+ CloudWatch Alarms. | 04/21/2026 | 04/21/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành:**<br>&emsp;+ Tạo CloudWatch Alarms.<br>&emsp;+ Giám sát CPU utilization của EC2.<br>&emsp;+ Cấu hình SNS notifications cho alarm.<br>&emsp;+ Phân tích các metrics giám sát. | 04/22/2026 | 04/22/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Tìm hiểu Elastic Load Balancing (ELB).<br>&emsp;+ Application Load Balancer (ALB).<br>&emsp;+ Target Groups.<br>&emsp;+ Health Checks.<br>- Cấu hình load balancing cho nhiều EC2 instance. | 04/23/2026 | 04/23/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Tìm hiểu Amazon EC2 Auto Scaling.<br>&emsp;+ Launch Templates.<br>&emsp;+ Auto Scaling Groups.<br>&emsp;+ Scaling Policies.<br>- Cấu hình scaling tự động dựa trên các metric của CloudWatch. | 04/24/2026 | 04/24/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:**<br>&emsp;+ Triển khai một ứng dụng web có tính sẵn sàng cao.<br>&emsp;+ Cấu hình Application Load Balancer.<br>&emsp;+ Cấu hình Auto Scaling Group.<br>&emsp;+ Xác minh failover và hành vi tự động scaling. | 04/25/2026 | 04/25/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 5:
+### Thành tựu của tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu được tầm quan trọng của việc giám sát tài nguyên đám mây nhằm duy trì độ tin cậy và hiệu năng của hệ thống.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu các tính năng cốt lõi của Amazon CloudWatch, bao gồm:
+  * Metrics
+  * Logs
+  * Dashboards
+  * CloudWatch Alarms
+  * Events
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Cấu hình thành công CloudWatch để giám sát mức sử dụng tài nguyên EC2 và hiệu năng ứng dụng.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tạo CloudWatch Alarms và tích hợp Amazon SNS để nhận email thông báo khi vượt ngưỡng đã định trước.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Hiểu cách Elastic Load Balancing phân phối lưu lượng đầu vào giữa nhiều EC2 instance.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Cấu hình thành công Application Load Balancer với:
+  * Target Groups
+  * Health Checks
+  * Listener Rules
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tìm hiểu cách Amazon EC2 Auto Scaling tự động điều chỉnh dung lượng tính toán theo nhu cầu tải.
 
+* Tạo thành công Auto Scaling Group bằng Launch Template và cấu hình các chính sách scaling động.
 
+* Xác minh rằng các EC2 instance mới được tự động khởi chạy khi tải tăng và bị xóa khi nhu cầu giảm.
+
+* Có kinh nghiệm thực tế trong việc triển khai kiến trúc có tính sẵn sàng cao kết hợp:
+  * Amazon EC2
+  * Application Load Balancer
+  * Auto Scaling
+  * Amazon CloudWatch
+
+* Hiểu cách các dịch vụ quản lý của AWS phối hợp với nhau để cải thiện khả năng mở rộng, độ chịu lỗi và hiệu quả vận hành.
+
+* Xây dựng nền tảng vững chắc để học các kiến trúc serverless và dịch vụ hướng sự kiện trong các tuần tiếp theo.

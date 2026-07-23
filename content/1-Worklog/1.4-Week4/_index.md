@@ -1,57 +1,68 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-04-13
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand AWS database services and caching solutions.
+* Learn the differences between relational and NoSQL databases.
+* Gain hands-on experience with Amazon RDS and Amazon DynamoDB.
+* Explore Amazon ElastiCache to improve application performance.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Learn Amazon Relational Database Service (RDS).<br>&emsp;+ Database Engines.<br>&emsp;+ DB Instance.<br>&emsp;+ Multi-AZ Deployment.<br>&emsp;+ Automated Backup. | 04/14/2026 | 04/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Practice:**<br>&emsp;+ Launch an Amazon RDS instance.<br>&emsp;+ Configure Security Groups.<br>&emsp;+ Connect to the database using a SQL client.<br>&emsp;+ Perform basic CRUD operations. | 04/15/2026 | 04/15/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Learn Amazon DynamoDB.<br>&emsp;+ Tables.<br>&emsp;+ Partition Keys.<br>&emsp;+ Sort Keys.<br>&emsp;+ Secondary Indexes. | 04/16/2026 | 04/16/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Learn Amazon ElastiCache.<br>&emsp;+ Redis.<br>&emsp;+ Memcached.<br>- Understand caching strategies and common use cases.<br>- Explore cache integration with applications. | 04/17/2026 | 04/17/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Practice:**<br>&emsp;+ Create a DynamoDB table.<br>&emsp;+ Insert and retrieve data.<br>&emsp;+ Explore ElastiCache deployment.<br>&emsp;+ Compare relational and NoSQL database performance. | 04/18/2026 | 04/18/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Understood the differences between relational databases and NoSQL databases.
 
-* Successfully created and configured an AWS Free Tier account.
+* Learned the architecture and capabilities of Amazon RDS, including:
+  * Supported Database Engines
+  * DB Instances
+  * Automated Backup
+  * Multi-AZ Deployment
+  * Read Replicas
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully deployed an Amazon RDS instance and established a remote database connection.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Performed fundamental database operations, including:
+  * Creating databases
+  * Creating tables
+  * Inserting records
+  * Querying data
+  * Updating and deleting records
 
-* Used AWS CLI to perform basic operations such as:
+* Learned the core concepts of Amazon DynamoDB, including:
+  * Tables
+  * Items
+  * Attributes
+  * Partition Keys
+  * Sort Keys
+  * Secondary Indexes
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Successfully created and managed a DynamoDB table using the AWS Management Console.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood the benefits of fully managed NoSQL databases for highly scalable applications.
+
+* Learned how Amazon ElastiCache improves application performance by reducing database workload.
+
+* Explored the features of Redis and Memcached and understood their common application scenarios.
+
+* Compared Amazon RDS, DynamoDB, and ElastiCache to determine appropriate use cases for different application architectures.
+
+* Acquired practical experience building data storage solutions using multiple AWS database services.
+
+* Established a solid foundation for deploying scalable and high-performance cloud applications in subsequent weeks.

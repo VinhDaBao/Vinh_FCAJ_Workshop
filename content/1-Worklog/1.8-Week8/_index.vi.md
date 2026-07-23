@@ -1,59 +1,60 @@
 ---
-title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+title: "Week 8 Worklog"
+date: 2026-05-11
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các nền tảng cơ bản của containerization và Docker.
+* Tìm hiểu cách triển khai các ứng dụng container bằng Amazon ECS.
+* Khám phá quản lý image container bằng Amazon ECR.
+* Có kinh nghiệm thực hành triển khai các ứng dụng có khả năng mở rộng bằng các dịch vụ container của AWS.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc sẽ thực hiện trong tuần này:
 
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Tìm hiểu các nền tảng của containerization.<br>&emsp;+ Containers vs Virtual Machines.<br>&emsp;+ Docker Architecture.<br>&emsp;+ Docker Images và Containers.<br>&emsp;+ Dockerfile basics. | 05/12/2026 | 05/12/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành:**<br>&emsp;+ Cài đặt Docker.<br>&emsp;+ Xây dựng một Docker image.<br>&emsp;+ Chạy và quản lý Docker containers.<br>&emsp;+ Đẩy image lên Amazon Elastic Container Registry (ECR). | 05/13/2026 | 05/13/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Tìm hiểu Amazon Elastic Container Service (ECS).<br>&emsp;+ ECS Clusters.<br>&emsp;+ Task Definitions.<br>&emsp;+ Services.<br>&emsp;+ Launch Types (EC2 & Fargate). | 05/14/2026 | 05/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Cấu hình một ECS cluster.<br>- Tạo Task Definitions và ECS Services.<br>- Triển khai một ứng dụng web container bằng Amazon ECS Fargate.<br>- Xác minh tính khả dụng của service. | 05/15/2026 | 05/15/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:**<br>&emsp;+ Cập nhật một container image.<br>&emsp;+ Thực hiện rolling deployment trên ECS.<br>&emsp;+ Giám sát ECS services bằng CloudWatch.<br>&emsp;+ Xác thực khả năng truy cập và khả năng mở rộng của ứng dụng. | 05/16/2026 | 05/16/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 8:
+### Thành tựu của tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu các khái niệm và lợi ích của containerization so với máy ảo truyền thống.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu các thành phần cốt lõi của Docker, bao gồm:
+  * Docker Images
+  * Docker Containers
+  * Dockerfile
+  * Docker Hub
+  * Docker Engine
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Xây dựng, chạy và quản lý thành công Docker containers trong môi trường phát triển cục bộ.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu cách Amazon Elastic Container Registry (ECR) lưu trữ và quản lý container images một cách an toàn.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Đẩy và quản lý thành công Docker images trong Amazon ECR.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Hiểu kiến trúc của Amazon Elastic Container Service (ECS), bao gồm:
+  * ECS Clusters
+  * Task Definitions
+  * ECS Services
+  * Fargate Launch Type
+  * EC2 Launch Type
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Triển khai thành công một ứng dụng container trên Amazon ECS bằng AWS Fargate.
 
+* Tìm hiểu cách ECS tự động quản lý việc lập lịch, mở rộng và tính sẵn sàng của container.
 
+* Cập nhật thành công các container ứng dụng thông qua rolling deployments với ít gián đoạn dịch vụ.
+
+* Giám sát ECS tasks và services bằng Amazon CloudWatch để xác minh sức khỏe và hiệu năng ứng dụng.
+
+* Có kinh nghiệm thực tế trong việc triển khai các ứng dụng cloud-native bằng Docker, Amazon ECR và Amazon ECS.
+
+* Xây dựng nền tảng vững chắc cho việc triển khai CI/CD và quá trình triển khai ứng dụng tự động trong các tuần tiếp theo.

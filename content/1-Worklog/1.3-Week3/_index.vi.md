@@ -1,59 +1,63 @@
 ---
-title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+title: "Week 3 Worklog"
+date: 2026-04-06
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 3:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các dịch vụ lưu trữ và DNS của AWS.
+* Tìm hiểu cách lưu trữ website tĩnh bằng Amazon S3.
+* Khám phá Amazon Route 53 cho quản trị tên miền và DNS.
+* Tìm hiểu cách Amazon CloudFront cải thiện hiệu năng phân phối nội dung.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc sẽ thực hiện trong tuần này:
 
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | - Tìm hiểu Amazon Simple Storage Service (S3).<br>&emsp;+ Buckets.<br>&emsp;+ Objects.<br>&emsp;+ Storage Classes.<br>&emsp;+ Bucket Policies. | 04/07/2026 | 04/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành:**<br>&emsp;+ Tạo một S3 Bucket.<br>&emsp;+ Tải lên các tệp website.<br>&emsp;+ Cấu hình Static Website Hosting.<br>&emsp;+ Kiểm tra khả năng truy cập công khai. | 04/08/2026 | 04/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Tìm hiểu Amazon Route 53.<br>&emsp;+ Hosted Zones.<br>&emsp;+ DNS Records.<br>&emsp;+ Domain Registration.<br>&emsp;+ Routing Policies. | 04/09/2026 | 04/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Tìm hiểu Amazon CloudFront.<br>- Tạo một CloudFront Distribution cho website tĩnh trên S3.<br>- Hiểu cơ chế caching và phân phối nội dung. | 04/10/2026 | 04/10/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:**<br>&emsp;+ Kết nối Route 53 với website S3.<br>&emsp;+ Cấu hình CloudFront.<br>&emsp;+ Xác minh khả năng truy cập website qua CDN.<br>&emsp;+ Kiểm tra cập nhật cache và invalidation. | 04/11/2026 | 04/11/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 3:
+### Thành tựu của tuần 3:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu được kiến trúc và các trường hợp sử dụng của Amazon Simple Storage Service (S3).
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu các khái niệm cốt lõi của Amazon S3, bao gồm:
+  * Buckets
+  * Objects
+  * Storage Classes
+  * Bucket Policies
+  * Static Website Hosting
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tạo và cấu hình thành công một bucket S3 để lưu trữ website tĩnh.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu cách quản lý quyền đối với object và bật public access một cách an toàn.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Hiểu mục đích của Amazon Route 53 và vai trò của nó như dịch vụ DNS được quản lý.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Cấu hình thành công các thành phần của Route 53, bao gồm:
+  * Hosted Zones
+  * A Records
+  * Alias Records
+  * DNS Resolution
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tìm hiểu cách Amazon CloudFront phân phối nội dung toàn cầu thông qua các edge locations.
 
+* Tạo thành công một CloudFront distribution cho website tĩnh và xác minh việc phân phối nội dung qua CDN.
 
+* Hiểu các khái niệm:
+  * Cache Behavior
+  * Cache Invalidation
+  * Origin Configuration
+  * HTTPS Content Delivery
+
+* Tích hợp thành công Amazon S3, Route 53 và CloudFront để xây dựng một website tĩnh an toàn và có sẵn cao.
+
+* Có kinh nghiệm thực tế trong việc triển khai các ứng dụng web tĩnh bằng các dịch vụ AWS được quản lý.
+
+* Xây dựng nền tảng vững chắc để lưu trữ các ứng dụng web có thể mở rộng và chuẩn bị cho tích hợp cơ sở dữ liệu trong các tuần tiếp theo.
