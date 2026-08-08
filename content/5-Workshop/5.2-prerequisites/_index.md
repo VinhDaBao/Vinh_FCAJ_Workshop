@@ -1,32 +1,24 @@
 ---
-title : "Prerequisites"
-date : 2024-01-01 
-weight : 2 
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "5.2. Prerequisites"
+weight: 2
 ---
 
-#### Technology stack
-+ Frontend: React 18, Vite, React Router, MUI, Radix UI, Tailwind CSS.
-+ Backend: Node.js, Express, Prisma, Socket.IO, BullMQ, Redis.
-+ Infrastructure: AWS, Terraform, S3, CloudFront, ECS, ALB, RDS, ElastiCache, ECR, Route 53, Secrets Manager.
-+ Deployment: GitHub Actions, Docker, environment-based staging setup.
+Before deploying the infrastructure for the PubliCast project, ensure that the following tools are properly installed and configured on your machine:
 
-#### What is needed to run the project
-+ Node.js and npm or pnpm.
-+ Docker for local services and container workflows.
-+ AWS credentials for provisioning staging infrastructure.
-+ A PostgreSQL/MySQL-compatible database is not required locally if you use the managed AWS stack.
+## Pre-required tools
 
-{{% notice warning %}}
-NEED AN IMAGE + setup flow showing developer machine, Docker, AWS account, Terraform, and the staging deployment pipeline.
-{{% /notice %}}
+1.  **AWS CLI**: Installed and configured with your AWS credentials (Access Key ID & Secret Access Key). Ensure the IAM user has sufficient permissions to create resources like VPC, ECS, RDS, S3, etc.
+2.  **Terraform**: Version >= 1.5.0. Used to deploy Infrastructure as Code (IaC).
+3.  **Docker**: To build and test local images if necessary.
+4.  **Git**: For source code management.
 
-{{< img "images/5-Workshop/5.2-Prerequisite/create-stack1.png" "create stack" >}}
+## Instructions to clone the project repository
 
-#### Project setup in one view
-+ Install dependencies for frontend and backend.
-+ Configure environment variables for API, database, Redis, and social integrations.
-+ Provision AWS staging resources through Terraform.
-+ Start the frontend and backend services.
-+ Verify login, dashboard access, and external integrations.
+Clone the source code containing the project's Terraform configuration to your local machine using the following commands:
+
+```bash
+git clone https://github.com/Nguyen-Thanh-Huy-io/FCAJ-AWS-Project.git
+cd publicast-terraform/terraform/envs/staging
+```
+
+*Note: Replace `https://github.com/your-username/publicast-terraform.git` with your actual repository URL.*

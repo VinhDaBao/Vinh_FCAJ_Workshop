@@ -1,95 +1,39 @@
 ---
-title : "Test the Gateway Endpoint"
-date : 2024-01-01 
-weight : 2
-chapter : false
-pre : " <b> 5.3.2 </b> "
+title: "5.3.2. Architecture Decisions"
+weight: 2
 ---
 
-#### Create S3 bucket
+This section explains the rationale behind the key technology choices made when designing the PubliCast AWS infrastructure. Understanding *why* a service was chosen in the context of our specific business requirements is just as important as knowing *how* to deploy it.
 
-1. Navigate to **S3 management console**
-2. In the Bucket console, choose **Create bucket**
+PubliCast is a cross-platform social media publishing tool. Our architecture must handle high-resolution media, secure third-party credentials, and process unpredictable workloads. Here is how AWS services map to those requirements.
 
-{{< img "images/5-Workshop/5.3-S3-vpc/create-bucket.png" "Create bucket" >}}
+## 1. Why Amazon S3 and CloudFront? (Media Storage & Delivery)
+**The Business Need:** Users continuously upload large video files and high-resolution images destined for platforms like YouTube, Facebook, and Instagram.
+**The Technical Choice:** 
+*   **Amazon S3:** We chose S3 because it provides virtually infinite scalability for massive binary blobs. It is far more cost-effective than storing media on block storage (EBS) or inside a relational database.
+*   **Amazon CloudFront:** By putting a CDN in front of S3, we ensure that users across different geographic regions experience ultra-low latency when previewing or uploading their content, significantly improving the user experience.
 
-3. In **the Create bucket console**
-+ **Name the bucket**: choose a name that hasn't been given to any bucket globally (hint: lab number and your name)
+## 2. Why AWS Secrets Manager? (Secure Credentials)
+**The Business Need:** To publish content on behalf of users, PubliCast must manage and utilize highly sensitive third-party API keys, OAuth tokens (Meta, Google), and database passwords.
+**The Technical Choice:** 
+Hardcoding these credentials in source code or standard environment variables is a major security risk. We integrated **AWS Secrets Manager** to encrypt and store these secrets centrally. At runtime, the ECS tasks fetch these secrets securely using IAM roles, ensuring strict compliance and zero credential leakage.
 
-{{< img "images/5-Workshop/5.3-S3-vpc/bucket-name.png" "Bucket name" >}}
+## 3. Why decouple into 3 Microservices? (Workload Isolation)
+**The Business Need:** Uploading and streaming heavy video files to YouTube takes time and consumes massive CPU/RAM. If handled synchronously, it would freeze the web application for users trying to do simple tasks.
+**The Technical Choice:** 
+We decoupled the monolith into three specialized microservices:
+*   **API Service:** Handles lightweight, real-time HTTP requests (e.g., loading the dashboard). Requires low CPU but fast response times.
+*   **Worker Light:** Handles quick background tasks like sending email notifications.
+*   **Worker Heavy:** Exclusively dedicated to resource-intensive tasks like video encoding and streaming payloads to social networks. 
+*   **Result:** This isolation guarantees that a massive spike in video publishing jobs will never crash or slow down the main user interface.
 
-+ Leave other fields as they are (default)
-+ Scroll down and choose **Create bucket**
+## 4. Why ECS on AWS Fargate? (Serverless Compute)
+**The Business Need:** Social media publishing traffic is often spiky (e.g., thousands of users scheduling posts for exactly 8:00 AM on Monday).
+**The Technical Choice:** 
+Instead of provisioning traditional EC2 virtual machines, we chose **ECS on AWS Fargate**. Fargate eliminates the need to patch or manage operating systems. More importantly, it allows our microservices to auto-scale rapidly and independently based on real-time demand, ensuring we only pay for the exact compute power we use.
 
-{{< img "images/5-Workshop/5.3-S3-vpc/create-button.png" "Create" >}} 
-
-+ Successfully create S3 bucket.
-
-{{< img "images/5-Workshop/5.3-S3-vpc/bucket-success.png" "Success" >}}
-
-#### Connect to EC2 with session manager
-
-+ For this workshop, you will use **AWS Session Manager** to access several **EC2 instances**. **Session Manager** is a fully managed **AWS Systems Manager** capability that allows you to manage your **Amazon EC2 instances**  and on-premises virtual machines (VMs) through an interactive one-click browser-based shell. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys.
-
-+ First Cloud AI Journey [Lab](https://000058.awsstudygroup.com/1-introduce/) for indepth understanding of Session manager.
-
-1. In the **AWS Management Console**, start typing ```Systems Manager``` in the quick search box and press **Enter**:
-
-{{< img "images/5-Workshop/5.3-S3-vpc/sm.png" "system manager" >}}
-
-2. From the **Systems Manager** menu, find **Node Management** in the left menu and click **Session Manager**:
-
-{{< img "images/5-Workshop/5.3-S3-vpc/sm1.png" "system manager" >}}
-
-3. Click **Start Session**, and select **the EC2 instance** named **Test-Gateway-Endpoint**. 
-{{% notice info %}}
-This EC2 instance is already running in "VPC Cloud" and will be used to test connectivity to Amazon S3 through the Gateway endpoint you just created (s3-gwe). {{% /notice %}}
-
-{{< img "images/5-Workshop/5.3-S3-vpc/start-session.png" "Start session" >}}
-
-**Session Manager** will open a new browser tab with a shell prompt: sh-4.2 $
-
-{{< img "images/5-Workshop/5.3-S3-vpc/start-session-success.png" "Success" >}}
-
-You have successfully start a session - connect to the EC2 instance in VPC cloud. In the next step, we will create a S3 bucket and a file in it. 
-
-#### Create a file and upload to s3 bucket
-
-1. Change to the ssm-user's home directory by typing ```cd ~``` in the CLI
-
-{{< img "images/5-Workshop/5.3-S3-vpc/cli1.png" "Change user's dir" >}}
-
-2. Create a new file to use for testing with the command ```fallocate -l 1G testfile.xyz```, which will create a file of 1GB size named "testfile.xyz".
-
-{{< img "images/5-Workshop/5.3-S3-vpc/cli-file.png" "Create file" >}}
-
-3. Upload file to S3 bucket with command ```aws s3 cp testfile.xyz s3://your-bucket-name```. Replace your-bucket-name with the name of S3 bucket that you created earlier.
-
-{{< img "images/5-Workshop/5.3-S3-vpc/uploaded.png" "Uploaded" >}}
-
-You have successfully uploaded the file to your S3 bucket. You can now terminate the session.
-
-#### Check object in S3 bucket
-
-1. Navigate to S3 console.  
-2. Click the name of your s3 bucket
-3. In the Bucket console, you will see the file you have uploaded to your S3 bucket
-
-{{< img "images/5-Workshop/5.3-S3-vpc/check-s3-bucket.png" "Check S3" >}}
-
-#### Section summary
-
-Congratulation on completing access to S3 from VPC. In this section, you created a Gateway endpoint for Amazon S3, and used the AWS CLI to upload an object. The upload worked because the Gateway endpoint allowed communication to S3, without needing an Internet Gateway attached to "VPC Cloud". This demonstrates the functionality of the Gateway endpoint as a secure path to S3 without traversing the Public Internet.
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 5. Why Amazon RDS and ElastiCache? (Data & Job Queues)
+**The Business Need:** The system needs to reliably store structured user data (Workspaces, Post Histories) and manage thousands of scheduled publishing jobs without dropping any.
+**The Technical Choice:** 
+*   **Amazon RDS (MySQL):** Provides highly available, relational storage with automated daily backups, ensuring core user data is never lost.
+*   **Amazon ElastiCache (Redis):** Acts as a lightning-fast message broker powering our BullMQ job queues. It ensures that every scheduled post is reliably picked up by a Worker, processed in order, and never duplicated, while also caching heavy database queries to speed up the API.

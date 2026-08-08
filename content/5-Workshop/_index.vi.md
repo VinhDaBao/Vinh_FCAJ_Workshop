@@ -18,10 +18,6 @@ Bản trình bày này giới thiệu PubliCast từ ý tưởng sản phẩm đ
 + **Chương 5.5** kết thúc bằng phần dọn dẹp và hủy tài nguyên.
 + **Chương 5.6** tổng kết và nêu hướng phát triển tiếp theo.
 
-{{% notice warning %}}
-NEED AN IMAGE + sơ đồ mạch trình bày thể hiện sáu phần chính từ tầm nhìn sản phẩm đến triển khai.
-{{% /notice %}}
-
 #### Nội dung
 
 1. [Tổng quan dự án](5.1-project-overview/)

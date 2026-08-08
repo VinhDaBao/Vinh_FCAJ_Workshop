@@ -1,32 +1,24 @@
 ---
-title : "Điều kiện cần"
-date : 2024-01-01 
-weight : 2
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "5.2. Điều kiện Tiên quyết"
+weight: 2
 ---
 
-#### Công nghệ sử dụng
-+ Frontend: React 18, Vite, React Router, MUI, Radix UI, Tailwind CSS.
-+ Backend: Node.js, Express, Prisma, Socket.IO, BullMQ, Redis.
-+ Hạ tầng: AWS, Terraform, S3, CloudFront, ECS, ALB, RDS, ElastiCache, ECR, Route 53, Secrets Manager.
-+ Triển khai: GitHub Actions, Docker, môi trường staging theo biến cấu hình.
+Trước khi triển khai hạ tầng cho dự án PubliCast, hãy đảm bảo rằng các công cụ sau đã được cài đặt và cấu hình đúng cách trên máy tính của bạn:
 
-#### Cần chuẩn bị gì
-+ Node.js và npm hoặc pnpm.
-+ Docker để chạy dịch vụ cục bộ và các luồng container.
-+ AWS credentials để triển khai hạ tầng staging.
-+ Không cần chạy database local nếu dùng toàn bộ stack trên AWS.
+## Các công cụ cần thiết
 
-{{% notice warning %}}
-NEED AN IMAGE + luồng chuẩn bị hệ thống thể hiện máy lập trình, Docker, AWS account, Terraform và pipeline triển khai staging.
-{{% /notice %}}
+1.  **AWS CLI**: Đã được cài đặt và cấu hình với thông tin xác thực AWS của bạn (Access Key ID & Secret Access Key). Đảm bảo rằng user IAM có đủ quyền để tạo các tài nguyên như VPC, ECS, RDS, S3, v.v.
+2.  **Terraform**: Phiên bản >= 1.5.0. Được sử dụng để triển khai Hạ tầng dưới dạng Code (IaC).
+3.  **Docker**: Để build và kiểm thử các image cục bộ nếu cần.
+4.  **Git**: Dùng để quản lý mã nguồn.
 
-{{< img "images/5-Workshop/5.2-Prerequisite/create-stack1.png" "create stack" >}}
+## Hướng dẫn clone kho lưu trữ dự án
 
-#### Quy trình setup ngắn gọn
-+ Cài dependency cho frontend và backend.
-+ Cấu hình biến môi trường cho API, database, Redis và các tích hợp mạng xã hội.
-+ Provision hạ tầng AWS staging bằng Terraform.
-+ Khởi động frontend và backend.
-+ Kiểm tra đăng nhập, dashboard và các tích hợp ngoài.
+Clone mã nguồn chứa cấu hình Terraform của dự án về máy tính cục bộ của bạn bằng các lệnh sau:
+
+```bash
+git clone https://github.com/Nguyen-Thanh-Huy-io/FCAJ-AWS-Project.git
+cd publicast-terraform/terraform/envs/staging
+```
+
+*Lưu ý: Bạn có thể thay thế `https://github.com/your-username/publicast-terraform.git` bằng URL kho lưu trữ thực tế của bạn nếu cần.*

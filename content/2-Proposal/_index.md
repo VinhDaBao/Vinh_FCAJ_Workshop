@@ -83,14 +83,19 @@ Project Timeline
 - Month 4: prepare documentation, training, and handover for ongoing operations
 
 ### 6. Budget Estimation
-Estimated monthly cost for a small production-ready environment:
-- ECS/Fargate services: $40-$90
-- RDS MySQL: $25-$60
-- ElastiCache Redis: $15-$40
-- S3 and CloudFront: $10-$30
-- ALB and monitoring: $20-$40
+Below is a detailed cost estimation for deploying a baseline staging or small production environment on AWS, running 24/7 for a full month (730 hours):
 
-Estimated total: approximately $110-$260 per month, depending on traffic, storage size, and availability requirements.
+*   **Compute (ECS Fargate)**: 3 Microservices (API, Worker Light, Worker Heavy) running on 0.25 vCPU / 0.5 GB RAM. ~$27.00
+*   **Database (RDS MySQL)**: 1 `db.t3.micro` instance (Single-AZ) with 20GB SSD storage. ~$15.00
+*   **Caching & Queues (ElastiCache Redis)**: 1 `cache.t3.micro` node. ~$12.00
+*   **Networking (Application Load Balancer)**: 1 ALB to route internet traffic to containers. ~$17.00
+*   **Storage & CDN (S3 + CloudFront)**: Frontend hosting and media storage (assuming ~50GB storage and moderate traffic). ~$5.00
+*   **Security & DNS (Secrets Manager, Route53)**: Secrets storage, Hosted Zone, and basic DNS queries. ~$3.00
+*   **CI/CD (CodePipeline & CodeBuild)**: Automated deployments (mostly covered by Free Tier). ~$2.00
+*   **Monitoring (CloudWatch)**: Basic logging and metrics. ~$2.00
+
+**Estimated Total: ~$83.00 per month.**
+*(Note: Costs will scale up based on actual data transfer, increased user traffic, and multi-AZ production redundancy).*
 
 ### 7. Risk Assessment
 Risk Matrix

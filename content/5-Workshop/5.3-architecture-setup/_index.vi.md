@@ -1,35 +1,15 @@
 ---
-title : "Kiến trúc và thiết lập"
-date : 2024-01-01 
-weight : 3
-chapter : false
-pre : " <b> 5.3. </b> "
+title: "5.3. Kiến trúc và Thiết lập"
+weight: 3
 ---
 
-#### Các tài nguyên AWS do Terraform tạo ra
+Trong chương này, chúng ta sẽ đi sâu vào cơ sở hạ tầng AWS vận hành nền tảng PubliCast. Chúng ta sẽ khám phá cách Terraform được sử dụng để cấp phát và điều phối các dịch vụ AWS khác nhau thành một môi trường gắn kết, đạt chuẩn production.
 
-Chương này trình bày hạ tầng hỗ trợ ứng dụng và cách Terraform ghép các thành phần lại với nhau.
+Bạn sẽ tìm hiểu về các tầng khác nhau trong kiến trúc của chúng ta, các lựa chọn cấu hình cụ thể được đưa ra cho từng dịch vụ, và quy trình từng bước để triển khai toàn bộ hệ thống lên tài khoản AWS của bạn.
 
-#### Dịch vụ AWS chính
-+ VPC với public và private subnets để tách lớp mạng và workload.
-+ ALB ở lớp public để nhận lưu lượng web.
-+ ECS service và task definitions cho API và các worker nền.
-+ RDS cho cơ sở dữ liệu quan hệ và ElastiCache Redis cho cache và queue.
-+ ECR cho container images, S3 và CloudFront cho frontend, Route 53 cho domain, và Secrets Manager cho secret runtime.
+### Các Chủ đề Bao gồm
 
-#### Thuộc tính quan trọng
-+ ECS service được đặt desired count là 1 API và 2 lớp worker.
-+ Kết nối database sử dụng MySQL trên cổng 3306.
-+ Terraform đưa environment variables và secret ARNs vào task definitions.
-+ Frontend bucket được kết hợp với CloudFront để phân phối công khai.
-
-{{% notice warning %}}
-NEED AN IMAGE + sơ đồ tổng thể thể hiện VPC, ALB, ECS, RDS, Redis, ECR, S3/CloudFront, Route 53 và Secrets Manager.
-{{% /notice %}}
-
-{{< img "images/5-Workshop/5.3-S3-vpc/diagram2.png" "overview" >}}
-
-#### Nội dung
-
-- [Bố cục hạ tầng](5.3.1-infrastructure-layout/)
-- [Thuộc tính tài nguyên](5.3.2-resource-properties/)
+- [Sơ đồ Kiến trúc Hạ tầng](5.3.1-infrastructure-layout/)
+- [Quyết định Kiến trúc](5.3.2-resource-properties/)
+- [Phân tích Terraform Modules](5.3.3-terraform-modules/)
+- [Thực thi Triển khai](5.3.4-deployment-execution/)

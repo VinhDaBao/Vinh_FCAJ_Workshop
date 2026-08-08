@@ -8,38 +8,29 @@ pre: " <b> 7. </b> "
 
 
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
-
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+** 1. Working Environment
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The working environment was highly professional, supportive, and conducive to learning. Throughout the internship, I was welcomed by team members who were approachable, friendly, and always willing to share their knowledge and experiences. The atmosphere encouraged open communication, allowing interns to ask questions, exchange ideas, and learn from constructive discussions. In addition, the workspace was well organized and provided all the necessary resources to complete assigned tasks efficiently. Overall, the positive working environment helped me quickly adapt to the organization and maintain motivation throughout the internship period.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+** 2. Support from Mentor / Team Admin
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The guidance and support provided by my mentor played a significant role in my professional development during the internship. Rather than simply providing answers, my mentor encouraged me to analyze problems independently, research possible solutions, and develop critical thinking skills before offering feedback. Regular discussions and code reviews helped me understand industry best practices and improve the quality of my work. The administrative team was also very supportive by providing timely information, necessary documentation, and assistance whenever administrative issues arose, ensuring that I could focus on learning and completing my assigned tasks.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+** 3. Relevance of Work to Academic Major
 
----
+The internship tasks were closely aligned with my academic background in cloud computing and software engineering. They allowed me to apply theoretical knowledge learned at university to real-world projects involving cloud services, infrastructure automation, version control, and deployment processes. At the same time, I gained exposure to technologies, tools, and workflows that are rarely covered in academic courses, helping me bridge the gap between theoretical knowledge and practical industry requirements.
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+** 4. Learning & Skill Development Opportunities
 
----
+The internship provided numerous opportunities for both technical and personal development. Through hands-on tasks and project participation, I strengthened my understanding of cloud computing, DevOps practices, Infrastructure as Code, and collaborative software development. Besides technical knowledge, I also improved important soft skills such as communication, teamwork, documentation, presentation, and time management. Receiving regular feedback from experienced engineers allowed me to identify my weaknesses and continuously improve throughout the internship.
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+** 5. Company Culture & Team Spirit
+
+The company maintains a positive, collaborative, and respectful working culture where every member is encouraged to contribute ideas regardless of their position. Team members were always willing to support one another when facing technical challenges or project deadlines, creating a strong sense of teamwork. As an intern, I never felt isolated because everyone treated me as a valuable member of the team. This inclusive culture not only improved my confidence but also motivated me to actively participate in discussions, share ideas, and contribute to the success of the team's projects.
+
+** 6. Internship Policies / Benefits
+
+The internship program was well organized and designed to provide meaningful learning experiences. Flexible working arrangements allowed interns to effectively balance academic responsibilities with internship tasks. Regular mentoring sessions, access to technical documentation, internal training materials, and practical project assignments created an excellent environment for continuous learning. Overall, the internship policies demonstrated the organization's commitment to supporting interns in both their professional and personal development, making the program a valuable experience for anyone interested in pursuing a career in cloud computing and software engineering.

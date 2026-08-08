@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn, bao gồm cả phần lưu ý này.
-{{% /notice %}}
+
 
 Trang này tổng hợp quá trình học tập và thực hành của tôi trong **12 tuần** tham gia chương trình **First Cloud AI Journey (FCAJ)**. Trong suốt thời gian thực tập, tôi đã tìm hiểu các dịch vụ cốt lõi của AWS, hoàn thành các bài thực hành (hands-on labs) và từng bước xây dựng kiến thức cũng như kỹ năng triển khai hệ thống trên nền tảng điện toán đám mây.
 

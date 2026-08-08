@@ -1,35 +1,15 @@
 ---
-title : "Architecture and Setup"
-date : 2024-01-01
-weight : 3
-chapter : false
-pre : " <b> 5.3. </b> "
+title: "5.3. Architecture and Setup"
+weight: 3
 ---
 
-#### AWS resources created by Terraform
+In this chapter, we will dive deep into the AWS infrastructure that powers the PubliCast platform. We will explore how Terraform is used to provision and orchestrate various AWS services into a cohesive, production-ready environment.
 
-This chapter presents the infrastructure that supports the application and how Terraform composes the stack.
+You will learn about the different layers of our architecture, the specific configuration choices made for each service, and the step-by-step process to deploy the entire stack to your AWS account.
 
-#### Core AWS services
-+ VPC with public and private subnets to separate traffic and workloads.
-+ ALB in the public layer to receive web traffic.
-+ ECS service and task definitions for the API and background workers.
-+ RDS for the relational database and ElastiCache Redis for cache and queue support.
-+ ECR for container images, S3 and CloudFront for the frontend, Route 53 for the domain, and Secrets Manager for runtime secrets.
+### Topics Covered
 
-#### Important properties
-+ ECS service desired counts are set for one API and two worker tiers.
-+ The database connection uses MySQL on port 3306.
-+ Terraform injects environment variables and secret ARNs into the task definitions.
-+ The frontend bucket is paired with CloudFront for public delivery.
-
-{{% notice warning %}}
-NEED AN IMAGE + overall architecture showing the VPC, ALB, ECS, RDS, Redis, ECR, S3/CloudFront, Route 53, and Secrets Manager.
-{{% /notice %}}
-
-{{< img "images/5-Workshop/5.3-S3-vpc/diagram2.png" "overview" >}}
-
-#### Content
-
-- [Infrastructure layout](5.3.1-infrastructure-layout/)
-- [Resource properties](5.3.2-resource-properties/)
+- [Infrastructure Layout](5.3.1-infrastructure-layout/)
+- [Architecture Decisions](5.3.2-resource-properties/)
+- [Terraform Modules Breakdown](5.3.3-terraform-modules/)
+- [Deployment Execution](5.3.4-deployment-execution/)

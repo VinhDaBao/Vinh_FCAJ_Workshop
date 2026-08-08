@@ -1,23 +1,18 @@
 ---
-title : "Wrap-up"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "5.6. Wrap-up"
+weight: 6
 ---
-Congratulations on completing the presentation walkthrough for PubliCast.
 
-#### Final summary
-+ The frontend presents a unified workspace for publishing, scheduling, and monitoring content.
-+ The backend provides modular APIs for auth, social integrations, teams, inbox, analytics, and admin operations.
-+ The AWS layer supports scalable hosting, containers, storage, data, secrets, and deployment automation.
+Congratulations on completing the workshop! Here are the core achievements and key lessons you've learned through deploying the PubliCast project.
 
-{{% notice warning %}}
-NEED AN IMAGE + closing architecture slide showing the full production stack and the value delivered to users and operators.
-{{% /notice %}}
+## Summary of achievements
 
-{{< img "images/5-Workshop/5.6-Cleanup/delete-stack.png" "delete stack" >}}
+*   **Production-grade Multi-AZ AWS Infrastructure**: You successfully built a secure, highly available network architecture with Public and Private Subnets spanning multiple Availability Zones.
+*   **Zero-NAT cost for S3 storage**: By successfully implementing a VPC Gateway Endpoint for S3, the project entirely eliminated data processing costs through the NAT Gateway for large media upload/download tasks, saving significant budget.
+*   **Microservice isolation**: Decoupling the background processing (Worker Light/Heavy) from the main API application keeps the system stable and flexible in scaling compute resources based on workload characteristics.
 
-#### Closing points
-+ The project is ready to demo as a complete cloud platform.
-+ Next steps can focus on performance, observability, and feature expansion.
+## Key lessons learned
+
+*   **Infrastructure as Code (IaC) with Terraform**: Understanding the power of consistently managing, automating, and reusing infrastructure configurations through code.
+*   **Cloud Cost Optimization Strategy**: Costs are not just about what services you use, but how those services communicate with each other (like the NAT Gateway vs VPC Endpoint lesson).
+*   **Architectural Design Thinking**: Applying the Queue-Worker pattern is key to building high-load web applications involving heavy media processing.

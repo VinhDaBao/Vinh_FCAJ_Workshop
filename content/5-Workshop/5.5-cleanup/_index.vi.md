@@ -1,28 +1,30 @@
 ---
-title : "Dọn dẹp"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5 </b> "
+title: "5.5. Dọn dẹp"
+weight: 5
 ---
 
-Chúc mừng bạn đã đi đến phần cuối của bản trình bày.
+Sau khi hoàn thành workshop hoặc khi bạn không còn cần môi trường thực hành này nữa, việc dọn dẹp (phá hủy) các tài nguyên AWS là cực kỳ quan trọng để tránh bị tính phí không mong muốn.
 
-#### Những gì cần dọn dẹp
-+ Chạy Terraform destroy trong môi trường staging để xóa các tài nguyên AWS do dự án quản lý.
-+ Xóa ECS service, ALB, RDS, ElastiCache, ECR, S3/CloudFront, Route 53, Secrets Manager và các IAM resources liên quan.
-+ Nếu bạn tạo riêng state backend hoặc bootstrap resources, hãy xóa chúng sau khi stack chính đã được gỡ bỏ.
+## Hướng dẫn dọn dẹp từng bước
 
-#### Luồng dọn dẹp bằng Terraform
-+ `terraform init`
-+ `terraform destroy`
-+ Kiểm tra kỹ plan trước khi xác nhận thao tác destroy.
+Chúng ta sẽ sử dụng Terraform để phá bỏ toàn bộ cơ sở hạ tầng đã tạo. Lệnh chính là:
 
-{{% notice warning %}}
-NEED AN IMAGE + slide dọn dẹp thể hiện Terraform destroy xóa toàn bộ AWS stack và đưa account về trạng thái sạch.
-{{% /notice %}}
+```bash
+terraform destroy --auto-approve
+```
 
-{{< img "images/5-Workshop/5.5-Policy/s3-bucket-policy.png" "endpoint diagram" >}}
+## Lưu ý Cảnh báo Quan trọng
 
-#### Lời kết
-Cảm ơn bạn đã theo dõi bản trình bày. Dự án có thể được gỡ bỏ sạch sẽ bằng Terraform sau khi bạn hoàn thành demo hoặc kiểm thử.
+> [!WARNING]
+> **Làm trống S3 Buckets trước khi chạy Terraform Destroy**
+> 
+> Theo mặc định, Terraform **không thể xóa** một Amazon S3 Bucket nếu bên trong nó vẫn còn chứa dữ liệu (các objects). Nếu bạn chạy lệnh `terraform destroy` khi S3 bucket chưa trống, quá trình này sẽ bị lỗi với thông báo `BucketNotEmpty`.
+> 
+> **Cách khắc phục:** 
+> Trước khi chạy `terraform destroy`, bạn phải sử dụng AWS Console hoặc AWS CLI để xóa sạch toàn bộ nội dung bên trong S3 Media Bucket của PubliCast.
+> 
+> *Sử dụng AWS CLI để làm trống bucket:*
+> ```bash
+> aws s3 rm s3://your-publicast-media-bucket-name --recursive
+> ```
+> *(Thay thế `your-publicast-media-bucket-name` bằng tên bucket thực tế của bạn).* Khi bucket đã trống, lệnh `terraform destroy` sẽ thực thi một cách trơn tru.

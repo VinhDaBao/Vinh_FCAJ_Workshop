@@ -19,9 +19,9 @@ chapter: false
 
 &emsp; **Lớp:** 
 
-&emsp; **Công ty thực tập:** Bootcamp - First Cloud AI Journe @ AWS Study Group
+&emsp; **Công ty thực tập:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Vị trí thực tập:** Cloud Engineer
+&emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
 &emsp; **Thời gian thực tập:** Từ ngày 19/03/2026 đến ngày 19/07/2026
 

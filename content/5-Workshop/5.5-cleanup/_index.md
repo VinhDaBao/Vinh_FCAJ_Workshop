@@ -1,30 +1,30 @@
 ---
-title : "Cleanup"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5. </b> "
+title: "5.5. Cleanup"
+weight: 5
 ---
 
-Congratulations on reaching the final part of the presentation.
+After completing the workshop or when you no longer need this practice environment, it is crucial to clean up (destroy) the AWS resources to avoid unwanted charges.
 
-#### What to clean up
-+ Run Terraform destroy in the staging environment to remove the AWS resources managed by this project.
-+ Remove the ECS service, ALB, RDS, ElastiCache, ECR, S3/CloudFront, Route 53, Secrets Manager, and related IAM resources from the stack.
-+ If you created a separate state backend or bootstrap resources, remove those only after the main stack is gone.
+## Step-by-step cleanup guide
 
-#### Recommended Terraform cleanup flow
-+ `terraform init`
-+ `terraform destroy`
-+ Review the plan carefully before confirming the destroy action.
+We will use Terraform to tear down the entire infrastructure we created. The main command is:
 
-{{% notice warning %}}
-NEED AN IMAGE + cleanup slide showing Terraform destroy removing the AWS stack and returning the account to a clean state.
-{{% /notice %}}
+```bash
+terraform destroy --auto-approve
+```
 
-{{< img "images/5-Workshop/5.5-Policy/s3-bucket-policy.png" "endpoint diagram" >}}
+## Crucial Warning Notice
 
-#### Closing note
-Thank you for reading the presentation. The project can be removed cleanly with Terraform once you finish the demo or validation.
-
-
+> [!WARNING]
+> **Empty S3 Buckets before running Terraform Destroy**
+> 
+> By default, Terraform **cannot delete** an Amazon S3 Bucket if it still contains data (objects). If you run `terraform destroy` when an S3 bucket is not empty, the process will fail with a `BucketNotEmpty` error.
+> 
+> **How to fix:** 
+> Before running `terraform destroy`, you must use the AWS Console or AWS CLI to empty all contents in the PubliCast S3 Media Bucket.
+> 
+> *Using AWS CLI to empty the bucket:*
+> ```bash
+> aws s3 rm s3://your-publicast-media-bucket-name --recursive
+> ```
+> *(Replace `your-publicast-media-bucket-name` with your actual bucket name).* Once the bucket is empty, the `terraform destroy` command will execute smoothly.

@@ -22,11 +22,11 @@ chapter: false
 
 &emsp; **Class:** 
 
-&emsp; **Internship Company:** AmBootcamp - First Cloud AI Journe @ AWS Study Group
+&emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Internship Position:** Cloud Engineer
+&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** Từ ngày 19/03/2026 đến ngày 19/07/2026
+&emsp; **Internship Duration:** From 19/03/2026 to 19/07/2026
 
 {{< img "images/avatar.png" "Your profile picture" >}}
 ### Report Content

@@ -1,40 +1,41 @@
 ---
-title : "Tạo một Gateway Endpoint"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.3.1 </b> "
+title: "5.3.1. Sơ đồ Kiến trúc Hạ tầng"
+weight: 1
 ---
 
-1. Mở [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
-2. Trong thanh điều hướng, chọn **Endpoints**, click **Create Endpoint**:
+Phần này cung cấp một cái nhìn tổng quan cấp cao về toàn bộ kiến trúc mạng và hệ thống cho dự án PubliCast. Hạ tầng được cấu thành từ nhiều dịch vụ AWS hoạt động phối hợp với nhau để mang lại một ứng dụng có tính khả dụng cao, bảo mật và dễ dàng mở rộng.
 
-{{% notice note %}}
-Bạn sẽ thấy 6 điểm cuối VPC hiện có hỗ trợ AWS Systems Manager (SSM). Các điểm cuối này được Mẫu CloudFormation triển khai tự động cho workshop này.
-{{% /notice %}}
+## Kiến trúc Hệ thống Tổng thể
 
-{{< img "images/5-Workshop/5.3-S3-vpc/endpoints.png" "endpoint" >}}
+Hệ thống PubliCast được chia một cách logic thành nhiều tầng chức năng, mỗi tầng sử dụng các dịch vụ được quản lý của AWS cụ thể và các module Terraform tương ứng.
 
-3. Trong Create endpoint console:
-+ Đặt tên cho endpoint: s3-gwe
-+ Trong service category, chọn **aws services**
+### 1. Tầng Mạng & Bảo mật (Network & Security Layer)
+Nền tảng của hệ thống được xây dựng trên một Đám mây riêng ảo (VPC) bảo mật cao.
+*   **VPC, Subnets & Gateways:** Cách ly hạ tầng thành các Subnets Công cộng (kết nối internet) và Subnets Riêng tư (backend bảo mật).
+*   **VPC Endpoints:** Cung cấp một lối tắt trực tiếp, miễn phí tới Amazon S3 cho các tài nguyên nằm trong private subnets.
+*   **Security Groups:** Đóng vai trò là tường lửa ảo để kiểm soát nghiêm ngặt lưu lượng truy cập giữa các thành phần (ví dụ: đảm bảo cơ sở dữ liệu chỉ chấp nhận kết nối từ các container ứng dụng).
+*   **IAM (Identity and Access Management):** Áp dụng nguyên tắc quyền hạn tối thiểu (least privilege), chỉ cấp cho các dịch vụ những quyền mà chúng thực sự cần để hoạt động.
 
-{{< img "images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png" "endpoint" >}}
+### 2. Tầng Cạnh & Cân bằng tải (Edge & Load Balancing Layer)
+Tầng này xử lý lưu lượng truy cập xuất phát từ internet công cộng và định tuyến nó đến các dịch vụ backend chính xác.
+*   **Route53:** Quản lý phân giải DNS, trỏ các tên miền tùy chỉnh đến các điểm đầu vào của chúng ta.
+*   **Application Load Balancer (ALB):** Tiếp nhận các yêu cầu HTTP/HTTPS và phân phối chúng đồng đều trên các instance chứa API backend.
+*   **CloudFront (CDN):** Lưu trữ bộ nhớ đệm (cache) đa phương tiện công cộng trên toàn cầu, giảm độ trễ cho người dùng cuối và giảm tải băng thông tải xuống nặng nề từ backend cốt lõi.
 
-+ Trong **Services**, gõ "s3" trong hộp tìm kiếm và chọn dịch vụ với loại **gateway**
+### 3. Tầng Tính toán & Container (Compute & Container Layer)
+Đây là nơi mã nguồn ứng dụng thực sự được thực thi.
+*   **Elastic Container Registry (ECR):** Lưu trữ các Docker image đã được build cho các vi dịch vụ của chúng ta (API Service, Worker Light, Worker Heavy).
+*   **Elastic Container Service (ECS) on Fargate:** Chạy các container ứng dụng trong môi trường tính toán không máy chủ (serverless). Chúng ta không cần quản lý các máy chủ vật lý bên dưới. Các quy tắc Auto-scaling sẽ tự động điều chỉnh số lượng container đang chạy dựa trên mức sử dụng CPU và Bộ nhớ trong thời gian thực.
 
-{{< img "images/5-Workshop/5.3-S3-vpc/services.png" "endpoint" >}}
+### 4. Tầng Lưu trữ & Cơ sở dữ liệu (Storage & Database Layer)
+Tầng này cung cấp khả năng lưu trữ dữ liệu bền bỉ và bộ nhớ đệm tốc độ cao.
+*   **Amazon RDS (MySQL):** Cơ sở dữ liệu quan hệ chính chứa dữ liệu cốt lõi của ứng dụng (Users, Workspaces, Posts, v.v.).
+*   **Amazon ElastiCache (Redis):** Đóng vai trò vừa là bộ nhớ đệm trong RAM để tăng tốc độ phản hồi API, vừa là message broker cho các hàng đợi công việc nền (BullMQ).
+*   **Amazon S3:** Lưu trữ đối tượng bảo mật, khả năng mở rộng cao cho toàn bộ tệp đa phương tiện do người dùng tải lên (video, hình ảnh).
+*   **AWS Secrets Manager:** Lưu trữ bảo mật các mật khẩu cơ sở dữ liệu và khóa API bên thứ ba, tiêm chúng vào các container ECS lúc khởi chạy để tránh việc hardcode khóa bí mật.
 
-+ Đối với VPC, chọn **VPC Cloud** từ drop-down menu.
-+ Đối với Route tables, chọn bảng định tuyến mà đã liên kết với 2 subnets (lưu ý: đây không phải là bảng định tuyến chính cho VPC mà là bảng định tuyến thứ hai do CloudFormation tạo).
-
-{{< img "images/5-Workshop/5.3-S3-vpc/vpc.png" "endpoint" >}}
-
-+ Đối với Policy, để tùy chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
-
-{{< img "images/5-Workshop/5.3-S3-vpc/policy.png" "endpoint" >}}
-
-+ Không thêm tag vào VPC endpoint.
-+ Click Create endpoint, click x sau khi nhận được thông báo tạo thành công.
-
-{{< img "images/5-Workshop/5.3-S3-vpc/complete.png" "endpoint" >}}
+### 5. Tầng Giám sát & Tự động hóa (Monitoring & Automation Layer)
+Đảm bảo hệ thống luôn trong trạng thái có thể quan sát, hoạt động tốt và các lần triển khai diễn ra liền mạch.
+*   **CloudWatch:** Tập trung hóa log của container và các số liệu hệ thống. Nó kích hoạt các chính sách tự động mở rộng (auto-scaling) hoặc cảnh báo khi hiệu suất suy giảm.
+*   **EventBridge:** Xử lý các tác vụ theo lịch trình (cron jobs) để tự động hóa việc bảo trì hệ thống định kỳ.
+*   **Đường ống CI/CD (CodePipeline):** Tự động hóa việc kiểm thử, xây dựng và triển khai trực tiếp các Docker image lên ECS mà không cần can thiệp thủ công.

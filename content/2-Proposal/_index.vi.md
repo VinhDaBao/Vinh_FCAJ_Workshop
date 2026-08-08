@@ -84,14 +84,19 @@ Lộ trình dự án
 - Tháng 4: chuẩn bị tài liệu, đào tạo và bàn giao cho vận hành lâu dài
 
 ### 6. Ước tính ngân sách
-Ước tính chi phí hàng tháng cho môi trường production nhỏ:
-- dịch vụ ECS/Fargate: 40-90 USD
-- RDS MySQL: 25-60 USD
-- ElastiCache Redis: 15-40 USD
-- S3 và CloudFront: 10-30 USD
-- ALB và giám sát: 20-40 USD
+Dưới đây là bảng ước tính chi phí chi tiết để triển khai một môi trường staging hoặc production quy mô nhỏ trên AWS, chạy liên tục 24/7 trong suốt một tháng (730 giờ):
 
-Ước tính tổng: khoảng 110-260 USD/tháng, tùy vào lưu lượng truy cập, dung lượng lưu trữ và yêu cầu độ sẵn sàng.
+*   **Tính toán (ECS Fargate)**: 3 Vi dịch vụ (API, Worker Light, Worker Heavy) chạy trên cấu hình 0.25 vCPU / 0.5 GB RAM. ~$27.00
+*   **Cơ sở dữ liệu (RDS MySQL)**: 1 phiên bản `db.t3.micro` (Single-AZ) với 20GB bộ nhớ SSD. ~$15.00
+*   **Bộ nhớ đệm & Hàng đợi (ElastiCache Redis)**: 1 node `cache.t3.micro`. ~$12.00
+*   **Mạng (Application Load Balancer)**: 1 ALB để định tuyến lưu lượng internet vào các container. ~$17.00
+*   **Lưu trữ & Phân phối (S3 + CloudFront)**: Lưu trữ Frontend và Media (giả sử ~50GB lưu trữ và lưu lượng truy cập vừa phải). ~$5.00
+*   **Bảo mật & DNS (Secrets Manager, Route53)**: Lưu trữ bảo mật, Hosted Zone và truy vấn DNS cơ bản. ~$3.00
+*   **CI/CD (CodePipeline & CodeBuild)**: Triển khai tự động (phần lớn nằm trong Free Tier). ~$2.00
+*   **Giám sát (CloudWatch)**: Lưu trữ log và số liệu cơ bản. ~$2.00
+
+**Tổng ước tính: ~$83.00 / tháng.**
+*(Lưu ý: Chi phí sẽ tăng lên dựa trên mức phí truyền tải dữ liệu thực tế, lưu lượng người dùng tăng cao và yêu cầu dự phòng Multi-AZ cho môi trường production lớn).*
 
 ### 7. Đánh giá rủi ro
 Ma trận rủi ro
