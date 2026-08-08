@@ -75,3 +75,5 @@ The event was very practical and heavily demo-driven.
 #### Active discussion
 - The event used quizzes and small rewards to keep attention high  
 - Participants asked detailed questions about technical features, pricing, and system behavior  
+
+{{< img "images/3-Event/27_6.jpg" "Event Proof" >}}

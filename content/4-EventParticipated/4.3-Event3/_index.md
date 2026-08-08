@@ -90,3 +90,5 @@ The event was highly interactive and covered both technical and soft-skill topic
 #### Supportive environment
 - First-time speakers and nervous participants were still respected and encouraged  
 - The event ended with warm appreciation and a positive feeling for everyone involved  
+
+{{< img "images/3-Event/30_5.jpg" "Event Proof" >}}

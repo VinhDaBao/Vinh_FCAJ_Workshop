@@ -87,3 +87,5 @@ Sự kiện cân bằng tốt giữa lý thuyết và demo trực tiếp, đồn
 #### Khuyến khích thể hiện bản thân
 - Ban tổ chức liên tục tương tác, đặt câu hỏi và tặng quà  
 - Sự kiện nhấn mạnh việc tự tin xuất hiện trước đám đông để tăng visibility cho sự nghiệp  
+
+{{< img "images/3-Event/23_5.jpg" "Event Proof" >}}

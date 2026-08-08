@@ -89,3 +89,5 @@ The event was practical and energetic, with many real examples from engineering,
 #### Inclusive atmosphere
 - The participation of the deaf/hard-of-hearing community added a strong human perspective  
 - The event encouraged learning without limits and professional growth through inclusion  
+
+{{< img "images/3-Event/21_3.jpg" "Event Proof" >}}

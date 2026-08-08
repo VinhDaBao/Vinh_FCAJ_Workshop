@@ -87,3 +87,5 @@ The event balanced architecture theory, live demos, and real stories from produc
 #### Encouraging self-expression
 - The organizers used quizzes and interactive questions to keep the audience engaged  
 - The event emphasized the value of speaking up and building visibility for your career  
+
+{{< img "images/3-Event/23_5.jpg" "Event Proof" >}}

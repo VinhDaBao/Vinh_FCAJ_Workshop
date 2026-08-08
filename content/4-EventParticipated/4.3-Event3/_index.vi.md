@@ -90,3 +90,5 @@ Sự kiện rất tương tác và cân bằng tốt giữa nội dung kỹ thu�
 #### Môi trường khích lệ
 - Dù là diễn giả lần đầu hay còn hồi hộp, mọi người vẫn được tôn trọng và cổ vũ  
 - Sự kiện khép lại bằng bầu không khí ấm áp và tích cực  
+
+{{< img "images/3-Event/30_5.jpg" "Event Proof" >}}

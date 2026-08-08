@@ -75,3 +75,5 @@ Sự kiện rất thực tế và tập trung nhiều vào demo trực tiếp.
 #### Tương tác sôi nổi
 - Chương trình có mini-game và quà tặng để giữ sự chú ý  
 - Khán giả đặt nhiều câu hỏi sâu về kỹ thuật, bảo mật và giá vận hành  
+
+{{< img "images/3-Event/27_6.jpg" "Event Proof" >}}

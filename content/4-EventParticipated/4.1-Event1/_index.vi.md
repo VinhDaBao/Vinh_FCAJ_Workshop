@@ -90,3 +90,5 @@ Sự kiện diễn ra rất thực tế, có nhiều ví dụ từ kỹ thuật 
 #### Không khí hòa nhập
 - Sự tham gia của cộng đồng người khiếm thính tạo ra một góc nhìn nhân văn mạnh mẽ  
 - Sự kiện khuyến khích học tập không giới hạn và phát triển nghề nghiệp bằng tinh thần hòa nhập  
+
+{{< img "images/3-Event/21_3.jpg" "Event Proof" >}}
