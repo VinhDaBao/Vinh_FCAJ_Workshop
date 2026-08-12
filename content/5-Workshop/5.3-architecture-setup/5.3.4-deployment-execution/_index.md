@@ -70,3 +70,31 @@ At this point, Terraform will list all the changes one last time and pause to as
 > The deployment process takes approximately 10-15 minutes, primarily because provisioning the RDS Database and ElastiCache Redis cluster takes time. Grab a coffee and wait for the `Apply complete!` message in your terminal.
 
 {{< img "images/Workshop/services/terraform-apply-complete.png" "Terminal - Terraform Apply Complete" >}}
+## Step 5: Testing and Validation
+
+After successfully deploying the system, perform a series of tests to ensure that all components are working as expected.
+
+1. **Access the Application:** Open a web browser and access your application through its domain, for example: `https://publicast.yourdomain.com`.
+
+   {{< img "images/Workshop/services/test-access-app.png" "Access Application" >}}
+
+2. **Send Requests:** Try logging in, creating a new Worklog post, or uploading an image to verify that the application can properly process requests.
+
+   {{< img "images/Workshop/services/test-send-request.png" "Send Request" >}}
+
+3. **Check System Logs:** Navigate to **AWS Console > CloudWatch > Log groups**. Find the `/ecs/publicast-staging` Log group and check the recorded logs to verify that requests from the application have been properly received and processed.
+
+   {{< img "images/Workshop/services/test-cloudwatch-logs.png" "CloudWatch Logs" >}}
+
+4. **Test CloudWatch Metrics & Alarms:** The system is configured to automatically analyze logs, detect errors, and send alerts when the number of errors exceeds the configured threshold. To test the complete alerting workflow, follow these steps:
+
+   * **Trigger an Error:** Intentionally call a non-existent API endpoint, such as `https://api.publicast.yourdomain.com/v1/invalid-endpoint`, or enter incorrect login credentials multiple times to generate backend logs containing keywords such as `ERROR` or `Exception`.
+
+   * **Check the Metric Filter:** Navigate to **CloudWatch > Log groups**, select `/ecs/publicast-staging`, and switch to the **Metric filters** tab. Check the metric associated with the error keyword and verify that the error counter has increased.
+
+   * **Check the Alarm Status:** Navigate to **All alarms** from the left-hand menu. Find the alarm named `publicast-staging-error-alarm`. When the number of errors exceeds the configured threshold within the specified period, the alarm status should change from **OK** to **In alarm**.
+
+   * **Verify the Email Alert (SNS):** Check the email inbox that was registered and confirmed for notifications during the previous setup step. When the alarm is triggered, Amazon SNS will automatically send an email notification containing information about the detected issue, allowing the operations team to respond promptly.
+
+   {{< img "images/Workshop/services/test-cloudwatch-alarm.png" "CloudWatch Alarm" >}}
+

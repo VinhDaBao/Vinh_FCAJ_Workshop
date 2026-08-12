@@ -1,0 +1,92 @@
+4. Thang điểm mẫu cho Project
+4.1. Ý tưởng & mục tiêu (1.0 điểm)
+Bối cảnh & bài toán:
+
+Hệ thống dùng để làm gì?
+Khách hàng là ai?
+Giải quyết vấn đề gì?
+Ví dụ: giám sát thời tiết, logging, monitoring microservice
+Mục tiêu cụ thể:
+
+Output mong muốn (dashboard, API, alert, …)
+Tiêu chí đánh giá thành công
+Phù hợp chương trình:
+
+Use-case gắn với FCAJ / AWS
+Không quá chung chung, không lệch chủ đề cloud
+4.2. Kiến trúc & thiết kế kỹ thuật (2.0 điểm)
+Sơ đồ kiến trúc:
+
+Diagram rõ ràng (draw.io, PowerPoint, Excalidraw, …)
+Thể hiện đầy đủ service AWS, luồng dữ liệu
+Lựa chọn dịch vụ:
+
+Giải thích vì sao chọn S3 / Lambda / API Gateway / DynamoDB, …
+Dựa trên chi phí, độ đơn giản, serverless, managed service
+Bảo mật & IAM cơ bản:
+
+IAM Role
+Principle of Least Privilege
+Hạn chế public resource
+Không hard-code access key
+Khả năng mở rộng & vận hành:
+
+Scale: Auto Scaling, event-driven, SQS, …
+Logging / Monitoring: CloudWatch, Alarm
+4.3. Triển khai & lab step-by-step (2.0 điểm)
+Prerequisite:
+
+Tài khoản AWS
+Region
+Công cụ: AWS CLI, SAM / CDK / Terraform (nếu có)
+Quyền IAM cần thiết
+Hướng dẫn chi tiết:
+
+Chia rõ từng bước (Step 1, Step 2, …)
+Có screenshot / CLI / console guide
+Thực hiện được end-to-end
+Test & validation:
+
+Gửi request
+Xem log
+Check metric
+Kiểm thử lỗi
+Kết quả mong đợi
+Clean-up:
+
+Xóa resource
+Delete stack
+Xóa bucket
+Xóa alarm
+4.4. Tài liệu workshop & trình bày (0.5 điểm)
+Song ngữ:
+
+Nội dung chính có cả tiếng Việt và tiếng Anh
+Dịch đúng ý, không lệch nghĩa nghiêm trọng
+Cấu trúc website:
+
+Đúng layout template
+Mục lục rõ ràng
+Navigation hợp lý
+Trình bày:
+
+Text dễ đọc
+Có code block
+Có hình ảnh minh họa
+Ít lỗi chính tả
+4.5. Đóng góp cá nhân (0.5 điểm)
+Mức độ tự làm:
+
+Không chỉ copy mẫu
+
+Có tùy biến:
+
+Thêm feature
+Thêm service
+Data khác
+Cách test khác
+Reflection ngắn:
+
+Nêu khó khăn gặp phải
+Cách giải quyết
+Hướng phát triển trong tương lai

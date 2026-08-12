@@ -70,3 +70,21 @@ Lúc này, Terraform sẽ liệt kê lại toàn bộ các thay đổi một l�
 > Quá trình triển khai sẽ mất khoảng 10-15 phút, chủ yếu là vì việc cấp phát RDS Database và cluster ElastiCache Redis mất khá nhiều thời gian. Hãy pha một tách cà phê và chờ đợi thông báo `Apply complete!` xuất hiện trong terminal của bạn.
 
 {{< img "images/Workshop/services/terraform-apply-complete.png" "Terminal - Terraform Apply Complete" >}}
+
+## Bước 5: Kiểm thử và Đo lường (Test & Validation)
+
+Sau khi hệ thống được triển khai thành công, bạn cần kiểm thử để đảm bảo mọi thứ hoạt động như mong đợi:
+
+1. **Truy cập ứng dụng:** Mở trình duyệt và truy cập vào tên miền của bạn (ví dụ: `https://publicast.yourdomain.com`).
+   {{< img "images/Workshop/services/test-access-app.png" "Access Application" >}}
+2. **Gửi Request:** Thử đăng nhập, tạo một bài viết (Worklog) mới hoặc tải lên một hình ảnh.
+   {{< img "images/Workshop/services/test-send-request.png" "Send Request" >}}
+3. **Xem Log hệ thống:** Truy cập AWS Console > **CloudWatch** > **Log groups**. Tìm đến `/ecs/publicast-staging` và kiểm tra luồng log để xác minh request của bạn đã được ghi nhận.
+   {{< img "images/Workshop/services/test-cloudwatch-logs.png" "CloudWatch Logs" >}}
+4. **Kiểm thử cảnh báo (CloudWatch Metrics & Alarms):** Hệ thống được cấu hình tự động quét log để tìm lỗi và phát cảnh báo. Để kiểm thử luồng này, bạn làm theo các bước sau:
+   * **Tạo lỗi nhân tạo (Trigger Error):** Cố tình gọi một API không tồn tại (ví dụ: `https://api.publicast.yourdomain.com/v1/invalid-endpoint`) hoặc nhập sai thông tin đăng nhập nhiều lần liên tiếp để ép backend sinh ra log có chứa từ khóa `ERROR` hoặc `Exception`.
+   * **Kiểm tra Metric Filter:** Truy cập vào **CloudWatch** > **Log groups** > chọn `/ecs/publicast-staging`. Chuyển sang tab **Metric filters**, bạn sẽ thấy bộ đếm (metric) của từ khóa lỗi tăng lên.
+   * **Quan sát trạng thái Alarm:** Điều hướng sang mục **All alarms** ở thanh menu bên trái. Tìm Alarm có tên `publicast-staging-error-alarm`. Trạng thái của nó sẽ chuyển từ cột màu xanh (OK) sang màu đỏ (In alarm) do số lượng lỗi vượt quá ngưỡng cho phép (threshold) trong thời gian ngắn.
+   * **Xác minh Email Alert (SNS):** Kiểm tra hộp thư email mà bạn đã đăng ký nhận thông báo (đã confirm subscription ở phần thiết lập trước đó). Bạn sẽ nhận được một email tự động từ AWS Notifications báo cáo chi tiết về sự cố, giúp đội ngũ vận hành phản ứng kịp thời.
+   
+   {{< img "images/Workshop/services/test-cloudwatch-alarm.png" "CloudWatch Alarm" >}}

@@ -18,9 +18,6 @@ This presentation walks through the PubliCast from product vision to AWS deploym
 + **Chapter 5.5** closes with cleanup and destroy steps.
 + **Chapter 5.6** closes with the summary and next steps.
 
-{{% notice warning %}}
-NEED AN IMAGE + presentation roadmap showing the six chapter sections and the flow from product vision to deployment.
-{{% /notice %}}
 
 #### Content
 
