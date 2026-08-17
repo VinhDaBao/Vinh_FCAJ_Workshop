@@ -37,5 +37,5 @@ Tầng này cung cấp khả năng lưu trữ dữ liệu bền bỉ và bộ nh
 ### 5. Tầng Giám sát & Tự động hóa (Monitoring & Automation Layer)
 Đảm bảo hệ thống luôn trong trạng thái có thể quan sát, hoạt động tốt và các lần triển khai diễn ra liền mạch.
 *   **CloudWatch:** Tập trung hóa log của container và các số liệu hệ thống. Nó kích hoạt các chính sách tự động mở rộng (auto-scaling) hoặc cảnh báo khi hiệu suất suy giảm.
-*   **EventBridge:** Xử lý các tác vụ theo lịch trình (cron jobs) để tự động hóa việc bảo trì hệ thống định kỳ.
+*   **EventBridge Scheduler & Amazon SQS (Kiến trúc Lai):** Xử lý tính năng Hẹn giờ đăng bài (Scheduled Posts). EventBridge đóng vai trò "Đồng hồ báo thức" với chi phí cực thấp. Khi đến giờ hẹn, nó kích hoạt sự kiện đẩy vào hàng đợi SQS để các Worker kéo ra xử lý một cách mượt mà, chống nghẽn cổ chai.
 *   **Đường ống CI/CD (CodePipeline):** Tự động hóa việc kiểm thử, xây dựng và triển khai trực tiếp các Docker image lên ECS mà không cần can thiệp thủ công.

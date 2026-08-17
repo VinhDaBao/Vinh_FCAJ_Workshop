@@ -37,5 +37,5 @@ This layer provides persistent data storage and high-speed caching.
 ### 5. Monitoring & Automation Layer
 Ensures the system is observable, healthy, and deployments are seamless.
 *   **CloudWatch:** Centralizes container logs and system metrics. It triggers auto-scaling policies or alerts when performance degrades.
-*   **EventBridge:** Handles scheduled tasks (cron jobs) to automate routine system maintenance.
+*   **EventBridge Scheduler & Amazon SQS (Hybrid Architecture):** Powers the Scheduled Posts feature. EventBridge acts as an ultra-low-cost "Alarm Clock". At the scheduled time, it triggers an event and pushes a message to the SQS queue, which the Workers then consume smoothly to prevent bottlenecks and API rate limits.
 *   **CI/CD Pipeline (CodePipeline):** Automates the testing, building, and deployment of Docker images directly to ECS without manual intervention.

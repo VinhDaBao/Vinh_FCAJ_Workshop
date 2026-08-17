@@ -5,7 +5,48 @@ weight: 4
 
 Bây giờ bạn đã hiểu rõ bố cục hạ tầng và các module Terraform ẩn bên dưới, đã đến lúc thực sự triển khai các tài nguyên AWS!
 
-## Bước 1: Cấu hình Biến Môi trường (Variables)
+## Bước 1: Cấu hình Tài khoản AWS (AWS Configure)
+
+Trước khi Terraform có thể tương tác và tạo ra các tài nguyên thực tế trên AWS, máy tính (hoặc môi trường dòng lệnh) của bạn cần được cấp quyền truy cập thông qua một bộ mã khóa bảo mật. Việc cấu hình này đảm bảo tính xác thực và phân quyền chính xác cho quá trình triển khai tự động.
+
+Dưới đây là các thao tác chi tiết:
+
+1. **Truy cập AWS IAM:** Đăng nhập vào [AWS Management Console](https://console.aws.amazon.com/). Trên thanh tìm kiếm ở góc trên cùng màn hình, gõ **IAM** (Identity and Access Management) và chọn dịch vụ này.
+   {{< img "images/Workshop/services/iam-search.png" "Search IAM" >}}
+2. **Tạo Người dùng (User):** Ở menu bên trái, chọn **Users** và nhấn nút **Create user**. Đặt tên cho người dùng (ví dụ: `terraform-admin`) và nhấn Next.
+   {{< img "images/Workshop/services/iam-create-user.png" "Create IAM User" >}}
+3. **Cấp quyền Quản trị viên:** Ở bước Set permissions, chọn **Attach policies directly**. Tìm kiếm và tick vào ô **AdministratorAccess** (quyền cao nhất) để đảm bảo Terraform có thể tạo mọi tài nguyên cần thiết cho PubliCast, sau đó nhấn Create user.
+   {{< img "images/Workshop/services/iam-attach-policy.png" "Attach AdministratorAccess Policy" >}}
+   > [!WARNING]
+   > Việc cấp quyền `AdministratorAccess` ở đây chỉ nhằm mục đích thuận tiện cho bài thực hành (Lab), giúp Terraform có thể khởi tạo toàn bộ tài nguyên mà không gặp lỗi từ chối truy cập. Trong môi trường thực tế (Production), bạn cần tuân thủ nguyên tắc Đặc quyền tối thiểu (Least Privilege) bằng cách cấu hình các policy chặt chẽ hơn, chỉ cấp đúng những quyền mà Terraform thực sự cần.
+4. **Tạo Access Key:** Bấm vào tên người dùng `terraform-admin` vừa tạo.
+   {{< img "images/Workshop/services/iam-user-created.png" "User Created Successfully" >}}
+   
+   Chuyển sang tab **Security credentials**. Kéo xuống phần Access keys và bấm **Create access key**.
+   {{< img "images/Workshop/services/iam-security-credentials.png" "Security Credentials Tab" >}}
+   
+   Ở bước 1 (Access key best practices & alternatives), chọn Use case là **Command Line Interface (CLI)**, tích chọn ô xác nhận cảnh báo ở dưới cùng và nhấn Next.
+   {{< img "images/Workshop/services/iam-access-key-cli.png" "Select CLI Use Case" >}}
+   
+   Ở bước 2 (Set description tag), bạn có thể đặt mô tả ngắn gọn (ví dụ: `terraform`) và nhấn **Create access key**.
+   {{< img "images/Workshop/services/iam-access-key-tag.png" "Set Access Key Tag" >}}
+   
+   Ở bước 3 (Retrieve access keys), màn hình sẽ hiển thị `Access key` và `Secret access key`. Đây là lần duy nhất bạn có thể xem được Secret Key, hãy copy lại và nhấn **Done** để hoàn tất.
+   {{< img "images/Workshop/services/iam-access-key-retrieve.png" "Retrieve Access Keys" >}}
+5. **Khởi chạy cấu hình AWS CLI:** Đảm bảo bạn đã cài đặt AWS CLI trên máy tính. Mở terminal (hoặc Command Prompt/PowerShell) của bạn và chạy lệnh khởi tạo:
+   ```bash
+   aws configure
+   ```
+   {{< img "images/Workshop/services/aws-configure-cmd.png" "Run aws configure" >}}
+6. **Nhập thông tin kết nối:** Terminal sẽ lần lượt yêu cầu bạn nhập 4 thông số. Hãy điền cẩn thận:
+   * **AWS Access Key ID**: Dán chuỗi Key ID bạn vừa nhận được ở bước 4 (Ví dụ: `AKIAIOSFODNN7EXAMPLE`).
+   * **AWS Secret Access Key**: Dán chuỗi Secret Key tương ứng (chỉ hiện ra một lần duy nhất).
+   * **Default region name**: Nhập mã khu vực AWS mà bạn muốn triển khai dự án (ví dụ: `ap-southeast-1` cho vùng Singapore, hoặc `us-east-1` cho Bắc Virginia).
+   * **Default output format**: Nhập `json` để kết quả các lệnh AWS CLI trả về dễ đọc hơn.
+   
+   {{< img "images/Workshop/services/aws-configure-inputs.png" "Enter AWS Credentials" >}}
+
+## Bước 2: Cấu hình Biến Môi trường (Variables)
 
 Trước khi chạy bất kỳ lệnh Terraform nào, bạn cần cung cấp các giá trị cụ thể của riêng mình. Bởi vì nền tảng PubliCast tích hợp với rất nhiều dịch vụ của bên thứ ba, file `terraform.tfvars` của bạn sẽ đóng vai trò là sổ đăng ký trung tâm cho toàn bộ API keys và mật khẩu.
 
@@ -38,7 +79,7 @@ Chúng ta **tuyệt đối không bao giờ** hardcode các giá trị nhạy c�
 > **Bảo mật mã khóa của bạn!** 
 > File `terraform.tfvars` đã tự động được bỏ qua bởi `.gitignore`. **Tuyệt đối không bao giờ** commit file `terraform.tfvars` thực tế của bạn lên GitHub, vì nó chứa các thông tin xác thực rất nhạy cảm mà hacker có thể khai thác.
 
-## Bước 2: Khởi tạo Terraform (Init)
+## Bước 3: Khởi tạo Terraform (Init)
 
 Khởi tạo thư mục làm việc Terraform. Lệnh này sẽ tải xuống các plugin provider AWS cần thiết.
 
@@ -46,7 +87,7 @@ Khởi tạo thư mục làm việc Terraform. Lệnh này sẽ tải xuống c�
 terraform init
 ```
 
-## Bước 3: Xem trước Thay đổi (Plan)
+## Bước 4: Xem trước Thay đổi (Plan)
 
 Tạo một kế hoạch thực thi. Bước này cho phép bạn xem trước một cách an toàn chính xác những tài nguyên AWS nào Terraform sẽ tạo ra trước khi nó thực sự làm việc đó.
 
@@ -54,7 +95,7 @@ Tạo một kế hoạch thực thi. Bước này cho phép bạn xem trước m
 terraform plan
 ```
 
-## Bước 4: Áp dụng Cấu hình (Apply)
+## Bước 5: Áp dụng Cấu hình (Apply)
 
 Khi bạn đã hài lòng với kế hoạch, hãy thực thi nó để cấp phát hạ tầng.
 
@@ -71,7 +112,7 @@ Lúc này, Terraform sẽ liệt kê lại toàn bộ các thay đổi một l�
 
 {{< img "images/Workshop/services/terraform-apply-complete.png" "Terminal - Terraform Apply Complete" >}}
 
-## Bước 5: Kiểm thử và Đo lường (Test & Validation)
+## Bước 6: Kiểm thử và Đo lường (Test & Validation)
 
 Sau khi hệ thống được triển khai thành công, bạn cần kiểm thử để đảm bảo mọi thứ hoạt động như mong đợi:
 

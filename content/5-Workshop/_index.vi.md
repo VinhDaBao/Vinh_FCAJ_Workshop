@@ -1,12 +1,11 @@
 ---
-title: "Bản trình bày PubliCast"
+title: "Workshop: Thiết kế và Triển khai hệ thống PubliCast trên AWS"
+linkTitle: "Workshop"
 date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-
-
 
 
 #### Tổng quan về bản trình bày

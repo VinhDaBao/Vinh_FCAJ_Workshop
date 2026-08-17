@@ -53,6 +53,42 @@ Lớp này đóng vai trò là "bộ não" và "đôi mắt" cho hạ tầng c�
 
 
 
+## EventBridge & SQS (`eventing`)
+**Mục đích:** Xây dựng kiến trúc lai (Hybrid Architecture) phục vụ cho tính năng Lên lịch Hẹn giờ đăng bài (Scheduled Posts). Module này kết hợp độ chính xác của EventBridge Scheduler với độ bền bỉ của hàng đợi SQS để điều tiết tốc độ xử lý tác vụ nền.
+
+**Tài nguyên Terraform chính:** 
+**Kết quả:** Sau khi chạy lệnh `terraform apply`, hệ thống sẽ có một luồng Hẹn giờ hoàn chỉnh:
+
+*   `aws_scheduler_schedule_group`: Tạo một nhóm (Group) chuyên dụng để quản lý tất cả các lịch trình (schedules) do người dùng tạo ra từ ứng dụng.
+*   `aws_sqs_queue`: Một hàng đợi Message Broker nhẹ nhàng để hứng các sự kiện từ EventBridge bắn sang. Hàng đợi này giúp ứng dụng không bị mất dữ liệu ngay cả khi hệ thống Worker đang quá tải.
+*   `aws_iam_role_policy` (Dành cho ECS Task): Cấp quyền cho API ECS có khả năng gọi hàm `scheduler:CreateSchedule` để ứng dụng có thể tạo lịch động mỗi khi người dùng bấm nút "Lên lịch" trên giao diện Web.
+
+    *   **Minh họa giao diện Web:**
+        Để có cái nhìn tổng quan về cách hệ thống hoạt động từ góc nhìn người dùng: khi người dùng chọn đăng bài và bấm "Schedule", backend sẽ giao tiếp với AWS EventBridge để tạo lịch trình tương ứng. Sau khi đến giờ, bài viết sẽ tự động được xuất bản lên mạng xã hội.
+
+        **1. Tạo bài viết mới:** Người dùng nhập nội dung và tải ảnh trực tiếp trên giao diện của PubliCast.
+        {{< img "images/Workshop/services/demo-post-create.png" "Giao diện Tạo bài viết" >}}
+        
+        **2. Chọn tùy chọn Lên lịch:** Thay vì đăng ngay, người dùng mở menu và chọn "Save and schedule".
+        {{< img "images/Workshop/services/demo-post-options.png" "Chọn tính năng Lên lịch" >}}
+        
+        **3. Thiết lập thời gian:** Giao diện chọn ngày giờ xuất hiện. Sau khi thiết lập xong, bấm nút "Schedule" để gửi yêu cầu về backend.
+        {{< img "images/Workshop/services/demo-post-schedule.png" "Thiết lập thời gian và Lên lịch" >}}
+        
+        **4. Kết quả đăng bài tự động:** Khi đến đúng giờ, EventBridge kích hoạt SQS, Worker xử lý nền và bài viết được xuất bản thành công lên Instagram.
+        {{< img "images/Workshop/services/demo-post-success.png" "Bài viết được xuất bản thành công trên Instagram" >}}
+
+    {{< img "images/Workshop/services/eventbridge-schedule-group.png" "AWS Console - EventBridge Schedule Group" >}}
+    <p align="center"><i>AWS Console - EventBridge Schedule Group</i></p>
+
+    {{< img "images/Workshop/services/sqs-events-queue.png" "AWS Console - SQS Events Queue" >}}
+    <p align="center"><i>AWS Console - SQS Events Queue</i></p>
+
+    **💡 Phân tích từ giao diện Console:**
+    Khi quan sát trên AWS Console, **EventBridge Schedule Group** đóng vai trò như một bảng điều khiển trung tâm, nơi bạn có thể thấy tất cả các bài viết (schedules) đang nằm chờ cho đến giờ xuất bản. Ngay khi đến đúng thời điểm, các lịch trình này sẽ tự động kích hoạt và đẩy một sự kiện vào **SQS Events Queue**. Tại hàng đợi SQS, bạn có thể quan sát số lượng tin nhắn (Messages available) tăng lên trước khi Worker kéo tác vụ về xử lý. Điều này giúp bạn dễ dàng hình dung và xác minh sự trơn tru của kiến trúc lai (Hybrid Architecture) đang hoạt động ngầm!
+
+📁 **Source Code:** Mở file `terraform/modules/eventing/main.tf` trong IDE của bạn để xem toàn bộ cấu hình.
+
 ## CI/CD Pipeline IAM (`ci`)
 **Mục đích:** Cung cấp các quyền hạn cần thiết cho hệ thống Tích hợp Liên tục và Triển khai Liên tục (CI/CD) để tự động hóa các bản triển khai một cách an toàn mà không cần cấp cho nó toàn quyền quản trị viên.
 

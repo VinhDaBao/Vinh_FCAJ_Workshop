@@ -52,6 +52,41 @@ This layer acts as the brain and eyes of our infrastructure. It ensures the syst
 📁 **Source Code:** Open `terraform/modules/cloudwatch/main.tf` in your local IDE to view the full configuration.
 
 
+## EventBridge & SQS (`eventing`)
+**Purpose:** Constructs a Hybrid Architecture dedicated to the Scheduled Posts feature. This module combines the precision of EventBridge Scheduler with the durability of an SQS queue to strictly regulate the pace of background task processing.
+
+**Key Terraform Resources:** 
+**Outcome:** After running `terraform apply`, the system is equipped with a complete scheduling pipeline:
+
+*   `aws_scheduler_schedule_group`: Creates a dedicated group to manage all dynamically generated schedules triggered by the users from the application.
+*   `aws_sqs_queue`: A lightweight message broker queue designed to catch events fired by EventBridge. This queue guarantees zero data loss even during peak Worker loads.
+*   `aws_iam_role_policy` (For ECS Task): Grants the ECS API the necessary permissions to invoke `scheduler:CreateSchedule`, allowing the app to dynamically create schedules whenever a user clicks "Schedule Post" on the web interface.
+
+    *   **Frontend UI Illustration:**
+        To give an overview of how this works from the user's perspective, when a user sets up a post and clicks "Schedule", the backend communicates with AWS EventBridge to create a matching schedule. Once the time arrives, the post is automatically published to social media.
+
+        **1. Create a New Post:** The user types their content and uploads media directly on the PubliCast interface.
+        {{< img "images/Workshop/services/demo-post-create.png" "Create New Post UI" >}}
+        
+        **2. Select Schedule Option:** Instead of publishing immediately, the user opens the dropdown and selects "Save and schedule".
+        {{< img "images/Workshop/services/demo-post-options.png" "Select Schedule Option" >}}
+        
+        **3. Set Schedule Time:** A date and time picker appears. Once configured, clicking "Schedule" sends the request to the backend.
+        {{< img "images/Workshop/services/demo-post-schedule.png" "Set Schedule Time" >}}
+        
+        **4. Automated Publishing Result:** At the scheduled time, EventBridge triggers SQS, the Worker processes the background job, and the post is successfully published to Instagram.
+        {{< img "images/Workshop/services/demo-post-success.png" "Post Successfully Published on Instagram" >}}
+
+    {{< img "images/Workshop/services/eventbridge-schedule-group.png" "AWS Console - EventBridge Schedule Group" >}}
+    <p align="center"><i>AWS Console - EventBridge Schedule Group</i></p>
+
+    {{< img "images/Workshop/services/sqs-events-queue.png" "AWS Console - SQS Events Queue" >}}
+    <p align="center"><i>AWS Console - SQS Events Queue</i></p>
+
+    **💡 Console Overview:**
+    When observing the AWS Console, the **EventBridge Schedule Group** acts as a centralized dashboard showing all upcoming scheduled posts waiting to be published. Once their time arrives, these schedules seamlessly trigger and push an event into the **SQS Events Queue**. At the SQS queue, you can observe the number of available messages spike before the Worker pulls the task for processing. This provides a clear, visual confirmation that the hybrid background architecture is smoothly operating under the hood!
+
+📁 **Source Code:** Open `terraform/modules/eventing/main.tf` in your IDE to explore the full configuration.
 
 ## CI/CD Pipeline IAM (`ci`)
 **Purpose:** Provisions the necessary permissions for the Continuous Integration and Continuous Deployment (CI/CD) system to safely automate deployments without giving it full administrator control.
